@@ -1,0 +1,120 @@
+package com.kapture.middleware.utils;
+
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.HashMap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+
+import com.kapture.middleware.DTOModels.KeyValue;
+import com.kapture.middleware.DataModel.ApiRequestModel;
+import com.kapture.middleware.DataModel.AuthEndPoints;
+import com.kapture.middleware.DataModel.DataEndPoints;
+import com.kapture.middleware.DataModel.RequestBuilderModel;
+import com.kapture.middleware.DataModel.SourceConf;
+import com.kapture.middleware.DataModel.UserConf;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component
+public class RequestBuilderUtils {
+	
+	public ApiRequestModel builder(RequestBuilderModel bmod) {
+		
+		String type = bmod.getType();
+		SourceConf sc = bmod.getSource();
+		
+		MultiValueMap<String, String> value = new LinkedMultiValueMap<String, String>();
+		
+		if (type.equalsIgnoreCase("Auth")) {
+			AuthEndPoints auth = bmod.getAuth();
+			HashMap<String, String> user = bmod.getCredmap();
+			
+			if (sc.getName().equalsIgnoreCase("99acres")) {
+				LinkedMultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
+				HttpHeaders headers = new HttpHeaders();
+				headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+				for (KeyValue temp : auth.getRequestbody()) {
+					if (temp.getValue().equalsIgnoreCase("codeValue")) {
+						String tempval = user.get(temp.getKey());
+						LocalDateTime now = LocalDateTime.now();
+						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+						String DateTime = now.format(formatter);
+						String backtime = now.minusDays(2).format(formatter);
+						tempval = tempval.replaceAll("(<start_date>)[^&]*(</start_date>)", "$1"+backtime+"$2");
+						tempval = tempval.replaceAll("(<end_date>)[^&]*(</end_date>)", "$1"+DateTime+"$2");
+						
+						params.add(temp.getKey(),tempval);
+					}
+				    HttpEntity<LinkedMultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, headers);
+				    ApiRequestModel rmod = ApiRequestModel.builder().requestentity(requestEntity).build();
+					return rmod;	
+			}
+			}
+				
+			for (KeyValue temp : auth.getParams()) {
+				if (temp.getValue().equalsIgnoreCase("codeValue")) {
+					String tempval = user.get(temp.getKey());
+					value.add(temp.getKey(), tempval);
+				}
+				else { 
+					value.add(temp.getKey(), temp.getValue());}
+			}
+			ApiRequestModel rmod = ApiRequestModel.builder().params(value).build();
+			return rmod;
+		}
+		else if (type.equalsIgnoreCase("Consume")) {
+			DataEndPoints dep = bmod.getDataendpoints();
+			HashMap<String, String> user = bmod.getCredmap();
+			
+			if (sc.getName().equalsIgnoreCase("99acres")) {
+				LinkedMultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
+				HttpHeaders headers = new HttpHeaders();
+				headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+				for (KeyValue temp : dep.getRequestbody()) {
+					if (temp.getValue().equalsIgnoreCase("codeValue")) {
+						String tempval = user.get(temp.getKey());
+						LocalDateTime now = LocalDateTime.now();
+						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+						String DateTime = now.format(formatter);
+						String backtime = now.minusDays(2).format(formatter);
+						tempval = tempval.replaceAll("(<start_date>)[^&]*(</start_date>)", "$1"+backtime+"$2");
+						tempval = tempval.replaceAll("(<end_date>)[^&]*(</end_date>)", "$1"+DateTime+"$2");
+						
+						params.add(temp.getKey(),tempval);
+					}
+					
+				    HttpEntity<LinkedMultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, headers);
+				    ApiRequestModel rmod = ApiRequestModel.builder().requestentity(requestEntity).build();
+					return rmod;	
+			}
+			}
+			for (KeyValue temp : dep.getParams()) {
+				if (temp.getValue().equalsIgnoreCase("codeValue")) {
+					String tempval = user.get(temp.getKey());
+					value.add(temp.getKey(), tempval);
+				}
+				else if (temp.getValue().equalsIgnoreCase("dbupdate")) {
+					value.add(temp.getKey(), sc.getPulllastdatetime().toString());
+				}
+				else { 
+					value.add(temp.getKey(), temp.getValue());}
+			}
+			ApiRequestModel rmod = ApiRequestModel.builder().params(value).build();
+			
+			return rmod;
+		}
+		return null;
+		
+	}
+
+}

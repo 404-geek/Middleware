@@ -1,0 +1,142 @@
+package com.kapture.middleware.AuthImpl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.support.BasicAuthenticationInterceptor;
+import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.kapture.middleware.DTOModels.KeyValue;
+import com.kapture.middleware.DTOModels.RequestBuilderDTO;
+import com.kapture.middleware.DataInterfaces.Authentication;
+import com.kapture.middleware.DataInterfaces.Formatter;
+import com.kapture.middleware.DataModel.AuthEndPoints;
+import com.kapture.middleware.DataModel.Credential;
+import com.kapture.middleware.DataModel.RequestBuilderModel;
+import com.kapture.middleware.DataModel.SourceConf;
+import com.kapture.middleware.DataModel.UserConf;
+import com.kapture.middleware.services.SourceConfService;
+import com.kapture.middleware.services.UserConfService;
+import com.kapture.middleware.utils.RequestBuilderUtils;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component("BasicAuth")
+public class BasicAuthImpl implements Authentication {
+
+	@Autowired
+	Formatter formatter;
+
+	@Autowired
+	UserConfService ucs;
+	
+	
+
+	@Autowired
+	SourceConfService scs;
+
+	@Autowired
+	RequestBuilderUtils util;
+
+	ResponseEntity<String> response = null;
+	HttpHeaders headers = new HttpHeaders();
+	List<Credential> cred;
+	String type;
+	String url;
+	String method;
+	RestTemplate rt = new RestTemplate();
+	String domain;
+	String username;
+	String password;
+
+	@Override
+	public RequestBuilderDTO authentication(SourceConf source) {
+		log.info(source.getName());
+		try {
+			if (source != null) {
+				List<Credential> list = new ArrayList<Credential>();
+				AuthEndPoints auth = source.getAuthEndPoints();
+				cred = ucs.getCredentials(source.getName());
+				if (auth != null) {
+
+					url = auth.getUrl();
+					method = auth.getMethod();
+
+					for (int j = 0; j < cred.size(); j++) {
+						if (source.getDomain().equals("yes")) {
+							domain = cred.get(j).getDomain();
+							url = domain + url;
+						}
+						for (KeyValue temp : cred.get(j).getCreds()) {
+							if (temp.getKey().equalsIgnoreCase("username")) {
+								username = temp.getValue();
+							}
+							if (temp.getKey().equalsIgnoreCase("password")) {
+								password = temp.getValue();
+							}
+						}
+						headers.setBasicAuth(username, password);
+						HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+
+						if (auth.getParams() != null) {
+
+							HashMap<String, String> ar = new HashMap<String, String>();
+							MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+							for (KeyValue temp : cred.get(j).getCreds()) {
+								ar.put(temp.getKey(), temp.getValue());
+							}
+							RequestBuilderModel bmod = RequestBuilderModel.builder().credmap(ar).auth(auth).type("Auth").build();
+							params = util.builder(bmod).getParams();
+							UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url).queryParams(params);
+							try {
+								if (method.equalsIgnoreCase("GET")) 
+									response = rt.exchange(builder.toUriString(), HttpMethod.GET, entity, String.class);
+								else 
+									response = rt.exchange(builder.toUriString(), HttpMethod.POST, entity,String.class);
+								
+								if (response.getStatusCodeValue() == 200) 
+									list.add(cred.get(j));
+								
+							} catch (Exception e) {
+								log.error("Error in Sending Request to the URL", e);
+							}
+
+						} else {
+							try {
+								if (method.equalsIgnoreCase("GET"))
+									response = rt.exchange(url, HttpMethod.GET, entity, String.class);
+								else
+									response = rt.exchange(url, HttpMethod.POST, entity, String.class);
+
+								if (response.getStatusCodeValue() == 200) 
+									list.add(cred.get(j));		
+								
+
+							} catch (Exception e) {
+								log.error("Error in Sending Request to the URL", e);
+							}
+						}
+					}
+				}
+				RequestBuilderDTO requestBuilderDTO = RequestBuilderDTO.builder().source(source).credential(list)
+						.Message("successfull").build();
+				return requestBuilderDTO;
+			}
+		} catch (Exception e) {
+			log.error("Basic Implementation Error", e);
+		}
+		return null;
+	}
+
+}

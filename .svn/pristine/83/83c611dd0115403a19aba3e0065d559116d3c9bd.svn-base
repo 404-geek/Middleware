@@ -1,0 +1,100 @@
+package com.kapture.middleware.AuthImpl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.kapture.middleware.DTOModels.KeyValue;
+import com.kapture.middleware.DTOModels.RequestBuilderDTO;
+import com.kapture.middleware.DataInterfaces.Authentication;
+import com.kapture.middleware.DataInterfaces.Formatter;
+import com.kapture.middleware.DataModel.AuthEndPoints;
+import com.kapture.middleware.DataModel.Credential;
+import com.kapture.middleware.DataModel.RequestBuilderModel;
+import com.kapture.middleware.DataModel.SourceConf;
+import com.kapture.middleware.services.UserConfService;
+import com.kapture.middleware.utils.RequestBuilderUtils;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Component("ResponseBodyAuth")
+@Slf4j
+public class ResponseBodyAuthImpl implements Authentication {
+	
+	@Autowired
+	Formatter formatter;
+
+	@Autowired
+	UserConfService ucs;
+
+	@Autowired
+	RequestBuilderUtils util;
+
+	ResponseEntity<String> response = null;
+	HttpHeaders headers = new HttpHeaders();
+	List<Credential> cred;
+	String type;
+	String url;
+	String method;
+	RestTemplate rt = new RestTemplate();
+	HttpEntity<LinkedMultiValueMap<String, Object>> entity = new HttpEntity<LinkedMultiValueMap<String,Object>>(headers);
+
+	@Override
+	public RequestBuilderDTO authentication(SourceConf source) {
+		log.info(source.getName());
+		if (source != null) {
+			List<Credential> list = new ArrayList<Credential>();
+			AuthEndPoints auth = source.getAuthEndPoints();
+			cred = ucs.getCredentials(source.getName());
+			if (auth != null) {
+				url = auth.getUrl();
+				method = auth.getMethod();
+
+				for (int j = 0; j < cred.size(); j++) {
+					HashMap<String, String> ar = new HashMap<String, String>();
+					
+					for (KeyValue temp : cred.get(j).getCreds()) {
+						ar.put(temp.getKey(), temp.getValue());
+					}
+					RequestBuilderModel bmod = RequestBuilderModel.builder().credmap(ar).auth(auth).source(source).type("Auth").build();
+					entity = util.builder(bmod).getRequestentity();	
+					
+					UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url);
+					try {
+						if (method.equalsIgnoreCase("GET")) {
+							response = rt.exchange(builder.toUriString(), HttpMethod.GET, entity, String.class);
+						} else {
+							response = rt.exchange(builder.toUriString(), HttpMethod.POST, entity, String.class);
+						}
+						
+						if (response.getBody().contains("true")) {
+							list.add(cred.get(j));
+						}
+					} catch (Exception e) {
+						log.error("Error in Sending Request to the URL", e);
+					}
+				}
+				RequestBuilderDTO requestBuilderDTO = RequestBuilderDTO.builder().source(source).credential(list)
+						.Message("successfull").build();
+
+				return requestBuilderDTO;
+			} else {
+				log.error("Data Endpoints is Empty for " + source.getName());
+			}
+		} else {
+			log.error("SourceConf is Empty for OAuth Implementation");
+		}
+		return null;
+	}
+}

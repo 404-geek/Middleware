@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring Boot Validation Login Form Example</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div class="login-form">
+        <form action="#" th:action="@{/View/login}" th:object="${login}"
+            method="post">
+            
+            
+            <h2 class="text-center">Sign in</h2>
+            
+            <p th:if="${#request.getAttribute('message')} != null"
+      th:text="${#request.getAttribute('message')}"></p>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span> <input
+                        type="text" class="form-control" th:field="*{userName}"
+                        placeholder="Username" />
+
+                </div>
+                
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span> <input
+                        type="password" class="form-control" th:field="*{password}"
+                        placeholder="Password" />
+
+                </div>
+                
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary login-btn btn-block">Sign
+                    in</button>
+            </div>
+        </form>
+    </div>
+</body>
+ <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  -->
+<script type="text/javascript" language="javascript">
+
+/* function Navigate(){  
+	var myNewVariable = '${logout}';
+	alert(myNewVariable);
+	if(myNewVariable==="yes")
+    window.location.replace('http://localhost:8080/login');
+   return false;
+} */
+
+
+/* function back_block() {
+	Response.ExpiresAbsolute = DateTime.Now;
+    Response.Expires = 0;
+    Response.CacheControl = "no-cache";
+	} */
+
+/* function noBack()
+{
+    window.history.forward()
+}
+noBack();
+window.onload = noBack;
+window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+window.onunload = function() { void (0) }
+ */
+
+/* window.onload = function (){
+	Page.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+} */
+
+/* function func()
+{
+if(window.history.previous) 
+{
+window.navigate('http://localhost:8080/View/index');
+}
+} */
+
+/* window.open("backbuttonnewpage.html",'TheNewpop','toolbar=1,
+		location=1,directories=1,status=1,menubar=1,
+		scrollbars=1,resizable=1'); */  
+
+/*$(document).ready(function() {
+    function disableBack() { window.history.forward() }
+
+    window.onload = disableBack();
+    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+});*/
+
+ window.onload = function () {
+	history.forward();
+    if (typeof history.pushState === "function") {
+        history.pushState("jibberish", null, null);
+        
+        window.onpopstate = function () {
+            history.pushState('newjibberish', null, null);           
+        };
+    }
+    else {
+        var ignoreHashChange = true;
+        window.onhashchange = function () {
+            if (!ignoreHashChange) {
+                ignoreHashChange = true;
+                window.location.hash = Math.random();                
+            }
+            else {
+                ignoreHashChange = false;   
+            }
+        };
+    }
+}; 
+
+</script>
+</html>

@@ -1,0 +1,82 @@
+package com.kapture.middleware.FormatterImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.collections4.IterableUtils;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.kapture.middleware.DataInterfaces.Formatter;
+import com.kapture.middleware.DataModel.HashCode;
+import com.kapture.middleware.DataModel.Model;
+import com.kapture.middleware.Repositories.HashCodeRepository;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Component("duplicacycheck")
+@Slf4j
+public class ShopifyDuplicacyCheckImpl implements Formatter {
+
+	@Autowired
+	HashCodeRepository hashCodeRepository;
+	
+	@Override
+	public String formatter(Model model) {
+
+		if(model.getData() != null) {
+		JsonArray app = new JsonArray();
+		JsonParser parser = new JsonParser();
+		JsonElement ele = parser.parse(model.getData());
+		app = ele.getAsJsonArray();
+		//System.out.println("app now "+app);
+		List<HashCode> hashCodeList = new ArrayList<HashCode>();
+		List<String> ss = new ArrayList<String>();
+		JSONObject cust = new JSONObject(app.get(0).toString());
+		//System.out.println("cust "+cust);
+		app = null;
+		ele = null;
+		//System.out.println("label...."+model.getLabel());
+		ele = parser.parse((String)cust.get(model.getLabel()).toString());
+		//System.out.println("ele "+ele);
+		app = ele.getAsJsonArray();
+		//System.out.println("app "+app);
+		for(int i = 0; i < app.size(); i++) {
+			JSONObject jso = new JSONObject(app.get(i).toString());
+			HashCode hashcode = new HashCode();
+			hashcode.setHash(model.getType()+"_"+model.getLabel()+"_"+Long.toString((long) jso.get("id")));
+			ss.add(model.getType()+"_"+model.getLabel()+"_"+Long.toString((long) jso.get("id")));
+			hashCodeList.add(hashcode);
+		}
+		Iterable<HashCode> hg = hashCodeRepository.findAllById(ss);
+		//System.out.println("size "+hg);
+		if(IterableUtils.size(hg)==0)
+		{
+			hashCodeRepository.saveAll(hashCodeList);
+		}
+		else
+		{
+			for(HashCode hh : hg) {
+				for(int i = 0; i < hashCodeList.size(); i++) {
+					if(hh.getHash().equalsIgnoreCase(hashCodeList.get(i).getHash()))
+					{
+						hashCodeList.remove(i);
+						app.remove(i);
+					}
+				}
+			}
+			hashCodeRepository.saveAll(hashCodeList);
+		
+		}
+		log.info("Formatted Data "+app.toString());
+		return app.toString();
+		}
+		else
+			return null;
+	}
+
+}

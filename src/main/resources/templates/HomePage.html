@@ -1,0 +1,59 @@
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Login Form</title>
+<link rel="stylesheet" href="/css/home.css">
+
+</head>
+
+<body>
+
+	<div class="form-login">
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+
+				<div class="form-row" id="addsource">
+				<form action="/View/AddNewSourceConfView">
+					<button type="submit">Add New SourceConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="source">
+				<form action="/View/EditSourceConfView">
+					<button type = "submit">Edit SourceConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/AddNewUserConfView">
+					<button type="submit">Add New UserConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/EditUserConfView">
+					<button type="submit">Edit UserConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="user">
+				<form action="/View/Logout">
+					<button type="submit">Logout</button>
+				</form>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>

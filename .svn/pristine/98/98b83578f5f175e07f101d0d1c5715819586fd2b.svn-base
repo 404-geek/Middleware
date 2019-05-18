@@ -1,0 +1,441 @@
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring Boot Validation Login Form Example</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/home.css" th:href="@{/css/home.css}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style type="text/css" th:inline="text">
+
+button {
+
+	display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 15px 35px;
+    border: 0;
+    cursor: pointer;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<body>
+
+	<div class="form-login">
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+
+				<div class="form-row" id="addsource">
+				<form action="/View/AddNewSourceConfView">
+					<button type="submit">Add New SourceConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="source">
+				<form action="/View/EditSourceConfView">
+					<button type = "submit">Edit SourceConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/AddNewUserConfView">
+					<button type="submit">Add New UserConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/EditUserConfView">
+					<button type="submit">Edit UserConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="user">
+				<form action="/View/Logout">
+					<button type="submit">Logout</button>
+				</form>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+			
+
+	<div class="form-login" >
+
+
+		<div class="form-log-in-with-email">
+
+			
+			<div class="form-white-background">
+			
+			<!-- <p th:if="${#request.getAttribute('SourceConfExists')} != null"
+      th:text="${#request.getAttribute('SourceConfExists')}"></p> -->
+				
+				<form action="/View/EditSourceConf" th:action="@{/View/EditSourceConf}" th:object="${SourceConf}" method="post">
+					
+					            <h2 class="text-center">Edit SourceConf Details : </h2>
+					            
+					            <table>
+					            
+					            
+					            <tr>
+					            
+					            <td> <label> <span>Select ApiName</span></label></td>
+					            <td>
+					            <select id="selectapiname" th:field= "*{name}" >
+					            <option th:value="select" th:text="select"></option>
+											<option th:each="apiname : ${apinameslist}"
+                            						th:value="${apiname}"
+                            						th:text="${apiname}"></option>
+									</select>
+					            
+					            </td>
+					            </tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>Type(Pull/Push) : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{type}" id="type"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>Authentication Type : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authType}" id="authtype"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>Formatter Type : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{formatterType}" id="formattertype"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility"><td><label> DataEndPoints Details : </label></td></tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>Label : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{dataEndPoints.label}" id="dlabel"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>URL  : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{dataEndPoints.url}" id="durl"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>Method  : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{dataEndPoints.method}" id="dmethod"/></td>
+					            
+					            
+					            </tr>
+					            <tr id="dataparam" class="visibility">
+					            
+					            <td > <label>Params for DataEndPoints : </label></td>
+					            
+					            </tr>
+					            <tr class="visibility">
+					            <td><label>AuthEndPoints Details: </label></td>
+					            </tr>
+					            <tr class="visibility">
+					            
+					            <td> <label>Label  : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authEndPoints.label}" id="alabel"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>url : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authEndPoints.url}" id="aurl"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility">
+					            
+					            <td> <label>Method: </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authEndPoints.method}" id="amethod"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr class="visibility" id="authparams">
+					            
+					            <td> <label>Params for AuthEndPoints : </label></td>
+					            
+					            </tr>
+					            <tr>
+					            <td></td>
+								<td id="tdkey"></td>
+								<td id="tdvalue"></td>	
+								<td id="tdbutton"></td>
+					            
+					            </tr>
+					            
+					            </table>
+					            <div class="visibility">
+					            <button type="button" class="btn btn-primary login-btn btn-block" id="addauth">Add Auth Param</button>
+					            <button type="button" class="btn btn-primary login-btn btn-block" id="adddata">Add Data Param</button>
+					            <button type="submit" name = "action" value = "save" class="btn btn-primary login-btn btn-block">Save Document</button>
+					            <button type="submit" name = "action" value = "delete"class="btn btn-primary login-btn btn-block" id="delconf">Delete Document</button>
+					            </div>
+            
+					
+					
+				</form>
+				
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+<script th:inline="javascript">
+
+$(document).ready(function () {
+
+    //call function when page is loaded
+    
+    	//alert("Poonam");
+    	$('.visibility').hide();
+    	var cou = 0;
+		var data = 0;
+    	$('.key').remove();
+    	$('.value').remove();
+    	$('.del').remove();
+    //set on change listener
+    $('#selectapiname').change(getSelectedValue);
+    $('#addauth').click(addAuth);
+    $('#adddata').click(addData);
+
+    $('#delconf').click(function() {
+        return confirm('Are You Sure wnat to delete?')
+      });
+    
+function getSelectedValue(){
+	var e = document.getElementById("selectapiname");
+	var apiname = e.options[e.selectedIndex].value;
+	var type;
+	$('.visibility').show();
+	
+	var authtype;
+	$('.key').remove();
+	$('.value').remove();
+	$('.del').remove();
+	var s = "select";
+	if(apiname==="select")
+	$('.visibility').hide();
+	else
+		{
+	$('.visibility').show();
+	
+	$.ajax({
+        url: "/View/GetSourceConf",
+        type: 'GET',
+        data: "apiname="+apiname,
+        cache:false,
+        success:function(response){
+        	
+        	if(response.name !== null)
+    		{
+        	$('#apiname').val(response.name)
+        	$('#type').val(response.type)
+        	$('#authtype').val(response.authType)
+        	$('#formattertype').val(response.formatterType)
+        	//alert(response.dataEndPoints.label)
+        	$('#dlabel').val(response.dataEndPoints.label)
+        	$('#durl').val(response.dataEndPoints.url)
+        	$('#dmethod').val(response.dataEndPoints.method)
+        	$('#alabel').val(response.authEndPoints.label)
+        	$('#aurl').val(response.authEndPoints.url)
+        	$('#amethod').val(response.authEndPoints.method)
+        	$.each(response.authEndPoints.params, function(){
+       			var key = this.key;
+       			var value = this.value;
+       			
+       			var adata="<tr><td><input type='text' class='key' id ='authEndPoints.params'" + cou + "'.key' name = 'authEndPoints.params[" + cou + "].key' value = '"+key+"'/></td>";
+       	        adata +="<td><input type='text' class='key' id='authEndPoints.params" + cou + ".value' name='authEndPoints.params[" + cou + "].value' value = '"+value+"'/></td> <td><input type='button' class='del' value = 'delete'/></td></tr>";
+       	     	$('#authparams').after(adata);
+       			
+       			/*var elek = $(document.createElement('input')).attr("type", "text").attr("class", "key").attr("id", "authEndPoints.params" + cou + ".key").attr("name", "authEndPoints.params[" + cou + "].key").val(key);
+       			var elev = $(document.createElement('input')).attr("type", "text").attr("class", "value").attr("id", "authEndPoints.params" + cou + ".value").attr("name", "authEndPoints.params[" + cou + "].value").val(value);
+       			var remove = $(document.createElement('button')).attr("type", "button").attr("value", "Delete").attr("class", "del");
+       			
+       			
+       			$('#tdkey').append(elek).append('<br />');
+       			$('#tdvalue').append(elev).append('<br />');
+       			$('#tdbutton').append(remove).append('<br />');*/
+       			$("button").css({"display": "block",
+    			    "border-radius": "1px",
+    			    "background-color":  "#6caee0",
+    			    "color": "#ffffff",
+    			    "font-weight": "bold",
+    			    "box-shadow": "1px 2px 4px 0 rgba(0, 0, 0, 0.08)",
+    			    "padding": "10px 15px",
+    			    "border": "0",
+    			    "margin": "0px auto 0",
+    			    "cursor": "pointer"});
+       			cou++;
+       			
+  			});
+        	$.each(response.dataEndPoints.params, function(){
+       			var key = this.key;
+       			var value = this.value;
+       			
+       			var ddata="<tr><td><input type='text' class='key' id ='dataEndPoints.params'" + data + "'.key' name = 'dataEndPoints.params[" + data + "].key' value = '"+key+"'/></td>";
+       	        ddata +="<td><input type='text' class='key' id='dataEndPoints.params" + data + ".value' name='dataEndPoints.params[" + data + "].value' value = '"+value+"'/></td> <td><input type='button' class='del' value = 'delete'/></td></tr>";
+       	     	$('#dataparam').after(ddata);
+       			
+       			/*var elek = $(document.createElement('input')).attr("type", "text").attr("class", "key").attr("id", "authEndPoints.params" + cou + ".key").attr("name", "authEndPoints.params[" + cou + "].key").val(key);
+       			var elev = $(document.createElement('input')).attr("type", "text").attr("class", "value").attr("id", "authEndPoints.params" + cou + ".value").attr("name", "authEndPoints.params[" + cou + "].value").val(value);
+       			var remove = $(document.createElement('button')).attr("type", "button").attr("value", "Delete").attr("class", "del");
+       			
+       			
+       			$('#tdkey').append(elek).append('<br />');
+       			$('#tdvalue').append(elev).append('<br />');
+       			$('#tdbutton').append(remove).append('<br />');*/
+       			$("button").css({"display": "block",
+    			    "border-radius": "1px",
+    			    "background-color":  "#6caee0",
+    			    "color": "#ffffff",
+    			    "font-weight": "bold",
+    			    "box-shadow": "1px 2px 4px 0 rgba(0, 0, 0, 0.08)",
+    			    "padding": "10px 15px",
+    			    "border": "0",
+    			    "margin": "0px auto 0",
+    			    "cursor": "pointer"});
+       			data++;
+       			
+  			});
+        	//$('.del').text("Delete");
+        }
+    	else
+    		{
+    		$('.visibility').hide();
+    		$('#selectapiname').attr("disabled", true); 
+    		}
+        	//alert(response.dataEndPoints.label)
+        },
+        error:function(jqXhr, textStatus, errorThrown){
+            alert(jqXhr);
+            alert(textStatus);
+            alert(errorThrown);
+        }
+    });
+		}
+}
+
+function addAuth(){
+	
+	
+	var adata="<tr><td><input type='text' class='key' id ='authEndPoints.params'" + cou + "'.key' name = 'authEndPoints.params[" + cou + "].key'placeholder = 'key'/></td>";
+       adata +="<td><input type='text' class='key' id='authEndPoints.params" + cou + ".value' name='authEndPoints.params[" + cou + "].value' placeholder = 'value' /></td> <td><input type='button' class='del' value = 'delete'/></td></tr>";
+       $('#authparams').after(adata);
+	
+	
+		/*var elek = $(document.createElement('input')).attr("type", "text").attr("class", "key").attr("id", "authEndPoints.params" + cou + ".key").attr("name", "authEndPoints.params[" + cou + "].key");
+		var elev = $(document.createElement('input')).attr("type", "text").attr("class", "value").attr("id", "authEndPoints.params" + cou + ".value").attr("name", "authEndPoints.params[" + cou + "].value");
+		var remove = $(document.createElement('button')).attr("type", "button").attr("text", "Delete").attr("class", "det");
+		
+		
+		
+		
+		$('#tdkey').append(elek).append('<br />');
+		$('#tdvalue').append(elev).append('<br />');
+		$('#tdbutton').append(remove).append('<br />');*/
+		$("button").css({"display": "block",
+		    "border-radius": "1px",
+		    "background-color":  "#6caee0",
+		    "color": "#ffffff",
+		    "font-weight": "bold",
+		    "box-shadow": "1px 2px 4px 0 rgba(0, 0, 0, 0.08)",
+		    "padding": "10px 15px",
+		    "border": "0",
+		    "margin": "0px auto 0",
+		    "cursor": "pointer"});
+		cou++;
+	
+}
+
+
+function addData(){
+	
+	
+	var ddata="<tr><td><input type='text' class='key' id ='dataEndPoints.params'" + data + "'.key' name = 'dataEndPoints.params[" + data + "].key'placeholder = 'key'/></td>";
+       ddata +="<td><input type='text' class='key' id='dataEndPoints.params" + data + ".value' name='dataEndPoints.params[" + data + "].value' placeholder = 'value' /></td> <td><input type='button' class='del' value = 'delete'/></td></tr>";
+       $('#dataparam').after(ddata);
+	
+	
+		/*var elek = $(document.createElement('input')).attr("type", "text").attr("class", "key").attr("id", "authEndPoints.params" + cou + ".key").attr("name", "authEndPoints.params[" + cou + "].key");
+		var elev = $(document.createElement('input')).attr("type", "text").attr("class", "value").attr("id", "authEndPoints.params" + cou + ".value").attr("name", "authEndPoints.params[" + cou + "].value");
+		var remove = $(document.createElement('button')).attr("type", "button").attr("text", "Delete").attr("class", "det");
+		
+		
+		
+		
+		$('#tdkey').append(elek).append('<br />');
+		$('#tdvalue').append(elev).append('<br />');
+		$('#tdbutton').append(remove).append('<br />');*/
+		$("button").css({"display": "block",
+		    "border-radius": "1px",
+		    "background-color":  "#6caee0",
+		    "color": "#ffffff",
+		    "font-weight": "bold",
+		    "box-shadow": "1px 2px 4px 0 rgba(0, 0, 0, 0.08)",
+		    "padding": "10px 15px",
+		    "border": "0",
+		    "margin": "0px auto 0",
+		    "cursor": "pointer"});
+		data++;
+	
+}
+
+ 	
+});
+
+$(document).on('click', '.del', function() {
+	//alert($(this).closest('tr').find('.key'));
+    $(this).closest('tr').remove();
+    
+});
+
+</script>
+
+</html>

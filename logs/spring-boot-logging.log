@@ -1,0 +1,791 @@
+2019-05-14 01:42:37.299  INFO 28033 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 01:42:37.368  INFO 28033 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 01:42:37.369  INFO 28033 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 01:42:37.665  INFO 28033 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:60}] to localhost:27017 because the pool has been closed.
+2019-05-14 01:43:50.604  INFO 10249 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 10249 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 01:43:50.607  INFO 10249 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 01:43:52.015  INFO 10249 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 01:43:52.070  INFO 10249 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50ms. Found 5 repository interfaces.
+2019-05-14 01:43:52.735  INFO 10249 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 01:43:52.817  INFO 10249 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 01:43:52.818  INFO 10249 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 01:43:52.831  INFO 10249 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 01:43:52.913  INFO 10249 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 01:43:52.913  INFO 10249 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2160 ms
+2019-05-14 01:43:53.361  INFO 10249 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 01:43:53.362  INFO 10249 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 01:43:53.392  INFO 10249 --- [cluster-ClusterId{value='5cd9d001ff122f28094db111', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:63}] to localhost:27017
+2019-05-14 01:43:53.394  INFO 10249 --- [cluster-ClusterId{value='5cd9d001ff122f28094db111', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=696297}
+2019-05-14 01:43:53.394  INFO 10249 --- [cluster-ClusterId{value='5cd9d001ff122f28094db111', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 01:43:53.942  INFO 10249 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 01:43:54.201  INFO 10249 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 01:43:54.259  INFO 10249 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 01:43:54.309  INFO 10249 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 01:43:54.310  INFO 10249 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 4.352 seconds (JVM running for 5.441)
+2019-05-14 01:43:54.331  INFO 10249 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:64}] to localhost:27017
+2019-05-14 01:43:54.368  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:44:14.066  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:44:14.066  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:44:15.552  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:44:32.084  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 01:44:32.670  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:44:35.845  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:44:35.846  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:44:37.168  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:44:37.174  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:44:40.147  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:44:40.148  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:44:41.074  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:44:41.075  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:44:44.550  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:44:44.550  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:44:44.701  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:44:44.981  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 01:45:06.793  INFO 10249 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-14 01:45:06.794  INFO 10249 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-14 01:45:06.799  INFO 10249 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2019-05-14 01:45:06.848  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Size of Json Array Sent to Kapture 2
+2019-05-14 01:45:06.848  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Response Fetched From Kapture Server  {"status":"free","message":"Data Synced Successfully"}
+2019-05-14 01:45:13.140  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:16.293  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:16.294  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:16.941  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:16.944  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:20.286  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:20.287  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:20.456  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:20.460  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:23.462  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:23.462  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:23.629  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:23.974  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 01:45:24.279  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:26.944  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:26.944  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:27.114  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:27.117  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:30.015  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:30.016  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:30.184  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:30.188  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:32.574  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:32.575  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:32.712  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:33.086  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 01:45:34.294  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:36.876  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:36.876  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:37.008  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:44.293  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:47.933  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:47.934  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:48.460  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:45:54.294  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:45:56.943  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:45:56.943  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:45:57.096  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:46:03.397  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 01:46:04.293  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:46:06.776  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:46:06.776  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:46:06.941  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:46:14.293  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:46:16.810  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:46:16.810  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:46:16.992  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:46:24.294  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:46:27.445  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:46:27.446  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:46:28.005  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:46:29.299  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 01:46:34.293  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:46:37.085  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:46:37.086  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:46:37.225  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:46:44.291  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:46:46.917  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:46:46.918  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:46:47.066  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:46:54.293  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:46:57.155  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:46:57.156  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:46:57.315  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:47:03.494  INFO 10249 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 01:47:04.293  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:47:07.299  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:47:07.300  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:47:07.824  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:47:14.293  INFO 10249 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 01:47:16.816  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 01:47:16.816  INFO 10249 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 01:47:16.966  INFO 10249 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 01:47:19.767  INFO 10249 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 01:47:19.771  INFO 10249 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 01:47:19.773  INFO 10249 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 01:47:19.778  INFO 10249 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:64}] to localhost:27017 because the pool has been closed.
+2019-05-14 10:34:23.564  INFO 11397 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 11397 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 10:34:23.570  INFO 11397 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 10:34:24.107  INFO 11397 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 10:34:24.184  INFO 11397 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73ms. Found 5 repository interfaces.
+2019-05-14 10:34:24.764  INFO 11397 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 10:34:24.782  INFO 11397 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 10:34:24.782  INFO 11397 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 10:34:24.787  INFO 11397 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 10:34:24.835  INFO 11397 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 10:34:24.835  INFO 11397 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1212 ms
+2019-05-14 10:34:25.097  INFO 11397 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 10:34:25.097  INFO 11397 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 10:34:25.170  INFO 11397 --- [cluster-ClusterId{value='5cda4c59ff122f2c8561b7c4', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:67}] to localhost:27017
+2019-05-14 10:34:25.171  INFO 11397 --- [cluster-ClusterId{value='5cda4c59ff122f2c8561b7c4', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=671898}
+2019-05-14 10:34:25.172  INFO 11397 --- [cluster-ClusterId{value='5cda4c59ff122f2c8561b7c4', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 10:34:25.800  INFO 11397 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 10:34:25.942  INFO 11397 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 10:34:25.999  INFO 11397 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 10:34:26.052  INFO 11397 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 10:34:26.055  INFO 11397 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 2.961 seconds (JVM running for 3.413)
+2019-05-14 10:34:26.087  INFO 11397 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:68}] to localhost:27017
+2019-05-14 10:34:26.113  INFO 11397 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 10:34:57.469  INFO 11397 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 10:34:57.469  INFO 11397 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 10:34:59.387  INFO 11397 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 10:35:01.563  INFO 11397 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 10:35:12.777  INFO 11397 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 10:35:12.778  INFO 11397 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 10:35:12.779  INFO 11397 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 10:35:12.781  INFO 11397 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:68}] to localhost:27017 because the pool has been closed.
+2019-05-14 10:36:45.826  INFO 11870 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 11870 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 10:36:45.828  INFO 11870 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 10:36:46.230  INFO 11870 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 10:36:46.290  INFO 11870 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55ms. Found 5 repository interfaces.
+2019-05-14 10:36:46.758  INFO 11870 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 10:36:46.775  INFO 11870 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 10:36:46.776  INFO 11870 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 10:36:46.780  INFO 11870 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 10:36:46.824  INFO 11870 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 10:36:46.824  INFO 11870 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 959 ms
+2019-05-14 10:36:47.010  INFO 11870 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 10:36:47.010  INFO 11870 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 10:36:47.038  INFO 11870 --- [cluster-ClusterId{value='5cda4ce7ff122f2e5efe9f96', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:71}] to localhost:27017
+2019-05-14 10:36:47.040  INFO 11870 --- [cluster-ClusterId{value='5cda4ce7ff122f2e5efe9f96', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=804009}
+2019-05-14 10:36:47.040  INFO 11870 --- [cluster-ClusterId{value='5cda4ce7ff122f2e5efe9f96', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 10:36:47.456  INFO 11870 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 10:36:47.547  INFO 11870 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 10:36:47.586  INFO 11870 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 10:36:47.630  INFO 11870 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 10:36:47.632  INFO 11870 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 2.072 seconds (JVM running for 2.399)
+2019-05-14 10:36:47.647  INFO 11870 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:72}] to localhost:27017
+2019-05-14 10:36:47.668  INFO 11870 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 10:36:51.226  INFO 11870 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 10:36:51.227  INFO 11870 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 10:36:53.282  INFO 11870 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 10:36:54.728  INFO 11870 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 10:37:07.661  INFO 11870 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 10:37:07.662  INFO 11870 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 10:37:07.663  INFO 11870 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 10:37:07.666  INFO 11870 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:72}] to localhost:27017 because the pool has been closed.
+2019-05-14 11:01:25.459  INFO 13254 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 13254 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 11:01:25.460  INFO 13254 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 11:01:25.997  INFO 13254 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 11:01:26.067  INFO 13254 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66ms. Found 5 repository interfaces.
+2019-05-14 11:01:26.773  INFO 13254 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 11:01:26.790  INFO 13254 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 11:01:26.790  INFO 13254 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 11:01:26.795  INFO 13254 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 11:01:26.839  INFO 13254 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 11:01:26.839  INFO 13254 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1338 ms
+2019-05-14 11:01:27.194  INFO 13254 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 11:01:27.194  INFO 13254 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 11:01:27.361  INFO 13254 --- [cluster-ClusterId{value='5cda52afff122f33c69ba1b5', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:75}] to localhost:27017
+2019-05-14 11:01:27.365  INFO 13254 --- [cluster-ClusterId{value='5cda52afff122f33c69ba1b5', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1705160}
+2019-05-14 11:01:27.366  INFO 13254 --- [cluster-ClusterId{value='5cda52afff122f33c69ba1b5', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 11:01:27.924  INFO 13254 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:01:28.096  INFO 13254 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 11:01:28.148  INFO 13254 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 11:01:28.230  INFO 13254 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 11:01:28.233  INFO 13254 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 3.275 seconds (JVM running for 3.68)
+2019-05-14 11:01:28.251  INFO 13254 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:76}] to localhost:27017
+2019-05-14 11:01:28.309  INFO 13254 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:01:34.388  INFO 13254 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 11:01:34.391  INFO 13254 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 11:01:34.391  INFO 13254 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:01:34.395  INFO 13254 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:76}] to localhost:27017 because the pool has been closed.
+2019-05-14 11:01:36.395 ERROR 13254 --- [scheduling-1] c.k.m.services.RestConsumeService        : Rest Consume Service
+
+java.lang.IllegalStateException: state should be: open
+	at com.mongodb.assertions.Assertions.isTrue(Assertions.java:70) ~[mongodb-driver-core-3.8.2.jar:na]
+	at com.mongodb.internal.connection.BaseCluster.getDescription(BaseCluster.java:164) ~[mongodb-driver-core-3.8.2.jar:na]
+	at com.mongodb.internal.connection.MultiServerCluster.getDescription(MultiServerCluster.java:54) ~[mongodb-driver-core-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate.getConnectedClusterDescription(MongoClientDelegate.java:136) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate.createClientSession(MongoClientDelegate.java:94) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.getClientSession(MongoClientDelegate.java:249) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:172) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoIterableImpl.execute(MongoIterableImpl.java:132) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoIterableImpl.iterator(MongoIterableImpl.java:86) ~[mongodb-driver-3.8.2.jar:na]
+	at org.springframework.data.mongodb.core.MongoTemplate.executeFindMultiInternal(MongoTemplate.java:2667) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.doFind(MongoTemplate.java:2404) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.doFind(MongoTemplate.java:2387) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.find(MongoTemplate.java:823) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.repository.support.SimpleMongoRepository.findAll(SimpleMongoRepository.java:360) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.repository.support.SimpleMongoRepository.findAllById(SimpleMongoRepository.java:204) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_192]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:359) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:200) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:644) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:608) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$invoke$3(RepositoryFactorySupport.java:595) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:595) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:59) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:61) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at com.sun.proxy.$Proxy76.findAllById(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_192]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139) ~[spring-tx-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at com.sun.proxy.$Proxy76.findAllById(Unknown Source) ~[na:na]
+	at com.kapture.middleware.FormatterImpl.ShopifyDuplicacyCheckImpl.formatter(ShopifyDuplicacyCheckImpl.java:40) ~[classes/:na]
+	at com.kapture.middleware.services.RestConsumeService.Maker(RestConsumeService.java:168) ~[classes/:na]
+	at com.kapture.middleware.services.Processor.process(Processor.java:59) [classes/:na]
+	at com.kapture.middleware.Scheduler.PullScheduler.pullData(PullScheduler.java:45) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_192]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) [spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_192]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [na:1.8.0_192]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_192]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [na:1.8.0_192]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_192]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_192]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_192]
+
+2019-05-14 11:07:03.557  INFO 13756 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 13756 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 11:07:03.561  INFO 13756 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 11:07:04.443  INFO 13756 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 11:07:04.558  INFO 13756 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107ms. Found 5 repository interfaces.
+2019-05-14 11:07:05.427  INFO 13756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 11:07:05.456  INFO 13756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 11:07:05.456  INFO 13756 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 11:07:05.462  INFO 13756 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 11:07:05.568  INFO 13756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 11:07:05.569  INFO 13756 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1947 ms
+2019-05-14 11:07:05.861  INFO 13756 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 11:07:05.862  INFO 13756 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 11:07:05.980  INFO 13756 --- [cluster-ClusterId{value='5cda5401ff122f35bc4d3bdf', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:77}] to localhost:27017
+2019-05-14 11:07:05.982  INFO 13756 --- [cluster-ClusterId{value='5cda5401ff122f35bc4d3bdf', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1123099}
+2019-05-14 11:07:05.983  INFO 13756 --- [cluster-ClusterId{value='5cda5401ff122f35bc4d3bdf', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 11:07:06.736  INFO 13756 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:07:06.957  INFO 13756 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 11:07:07.045  INFO 13756 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 11:07:07.171  INFO 13756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 11:07:07.173  INFO 13756 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 4.086 seconds (JVM running for 4.795)
+2019-05-14 11:07:07.303  INFO 13756 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:78}] to localhost:27017
+2019-05-14 11:07:07.353  INFO 13756 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:07:11.366  INFO 13756 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:07:11.367  INFO 13756 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:26:45.954  INFO 16005 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 16005 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 11:26:45.965  INFO 16005 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 11:26:47.511  INFO 16005 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 11:26:47.637  INFO 16005 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106ms. Found 5 repository interfaces.
+2019-05-14 11:26:48.485  INFO 16005 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 11:26:48.505  INFO 16005 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 11:26:48.505  INFO 16005 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 11:26:48.537  INFO 16005 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 11:26:48.667  INFO 16005 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 11:26:48.667  INFO 16005 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2439 ms
+2019-05-14 11:27:24.317  INFO 16242 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 16242 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 11:27:24.319  INFO 16242 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 11:27:24.722  INFO 16242 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 11:27:24.783  INFO 16242 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55ms. Found 5 repository interfaces.
+2019-05-14 11:27:25.264  INFO 16242 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 11:27:25.294  INFO 16242 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 11:27:25.294  INFO 16242 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 11:27:25.300  INFO 16242 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 11:27:25.354  INFO 16242 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 11:27:25.355  INFO 16242 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1004 ms
+2019-05-14 11:27:25.830  INFO 16242 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 11:27:25.830  INFO 16242 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 11:27:25.864  INFO 16242 --- [cluster-ClusterId{value='5cda58c5ff122f3f72d30bf0', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:83}] to localhost:27017
+2019-05-14 11:27:25.865  INFO 16242 --- [cluster-ClusterId{value='5cda58c5ff122f3f72d30bf0', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=616636}
+2019-05-14 11:27:25.866  INFO 16242 --- [cluster-ClusterId{value='5cda58c5ff122f3f72d30bf0', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 11:27:26.680  INFO 16242 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:27:26.812  INFO 16242 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 11:27:26.943  INFO 16242 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 11:27:27.142  INFO 16242 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 11:27:27.144  INFO 16242 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 3.093 seconds (JVM running for 3.43)
+2019-05-14 11:27:27.164  INFO 16242 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:84}] to localhost:27017
+2019-05-14 11:27:27.189  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:01.491  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:01.491  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:03.277  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:05.048  INFO 16242 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:28:05.064  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:08.747  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:08.748  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:10.007  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:10.011  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:12.816  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:12.817  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:14.146  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:14.150  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:16.706  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:16.706  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:17.017  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:17.030  INFO 16242 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:28:17.040  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:19.676  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:19.677  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:20.010  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:20.015  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:22.953  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:22.953  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:23.143  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:27.113  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:29.507  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:29.508  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:29.727  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:29.744  INFO 16242 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:28:37.110  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:39.952  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:39.953  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:45.271  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:47.113  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:28:49.677  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:28:49.677  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:28:49.903  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:28:57.113  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:29:00.213  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:29:00.213  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:29:00.412  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:29:00.427  INFO 16242 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:29:07.111  INFO 16242 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:29:10.403  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:29:10.404  INFO 16242 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:29:11.794  INFO 16242 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:29:12.710  INFO 16242 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 11:29:12.713  INFO 16242 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 11:29:12.714  INFO 16242 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:29:12.719  INFO 16242 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:84}] to localhost:27017 because the pool has been closed.
+2019-05-14 11:30:14.320  INFO 16413 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 16413 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 11:30:14.322  INFO 16413 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 11:30:14.717  INFO 16413 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 11:30:14.770  INFO 16413 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50ms. Found 5 repository interfaces.
+2019-05-14 11:30:15.195  INFO 16413 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 11:30:15.212  INFO 16413 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 11:30:15.213  INFO 16413 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 11:30:15.217  INFO 16413 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 11:30:15.274  INFO 16413 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 11:30:15.274  INFO 16413 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 925 ms
+2019-05-14 11:30:15.518  INFO 16413 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 11:30:15.518  INFO 16413 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 11:30:15.680  INFO 16413 --- [cluster-ClusterId{value='5cda596fff122f401d1e76da', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:87}] to localhost:27017
+2019-05-14 11:30:15.681  INFO 16413 --- [cluster-ClusterId{value='5cda596fff122f401d1e76da', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=841045}
+2019-05-14 11:30:15.682  INFO 16413 --- [cluster-ClusterId{value='5cda596fff122f401d1e76da', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 11:30:16.228  INFO 16413 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:30:16.370  INFO 16413 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 11:30:16.422  INFO 16413 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 11:30:16.476  INFO 16413 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 11:30:16.478  INFO 16413 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 2.467 seconds (JVM running for 3.265)
+2019-05-14 11:30:16.494  INFO 16413 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:88}] to localhost:27017
+2019-05-14 11:30:16.517  INFO 16413 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:30:30.347  INFO 16413 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:30:30.348  INFO 16413 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:30:30.762  INFO 16413 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:30:30.894  INFO 16413 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:30:30.901  INFO 16413 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:30:33.822  INFO 16413 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:30:33.823  INFO 16413 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:30:34.005  INFO 16413 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:30:36.466  INFO 16413 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:30:38.941  INFO 16413 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:30:38.942  INFO 16413 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:30:39.216  INFO 16413 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:30:41.961  INFO 16413 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 11:30:41.965  INFO 16413 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 11:30:41.966  INFO 16413 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:30:41.971  INFO 16413 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:88}] to localhost:27017 because the pool has been closed.
+2019-05-14 11:31:19.133  INFO 16531 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 16531 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 11:31:19.135  INFO 16531 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 11:31:19.524  INFO 16531 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 11:31:19.587  INFO 16531 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56ms. Found 5 repository interfaces.
+2019-05-14 11:31:20.081  INFO 16531 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 11:31:20.099  INFO 16531 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 11:31:20.100  INFO 16531 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 11:31:20.105  INFO 16531 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 11:31:20.158  INFO 16531 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 11:31:20.159  INFO 16531 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 991 ms
+2019-05-14 11:31:20.370  INFO 16531 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 11:31:20.371  INFO 16531 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 11:31:20.400  INFO 16531 --- [cluster-ClusterId{value='5cda59b0ff122f409318ed46', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:89}] to localhost:27017
+2019-05-14 11:31:20.401  INFO 16531 --- [cluster-ClusterId{value='5cda59b0ff122f409318ed46', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=790520}
+2019-05-14 11:31:20.402  INFO 16531 --- [cluster-ClusterId{value='5cda59b0ff122f409318ed46', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 11:31:20.830  INFO 16531 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:31:20.919  INFO 16531 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 11:31:20.968  INFO 16531 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 11:31:21.011  INFO 16531 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 11:31:21.013  INFO 16531 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 2.184 seconds (JVM running for 2.575)
+2019-05-14 11:31:21.117  INFO 16531 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:90}] to localhost:27017
+2019-05-14 11:31:21.171  INFO 16531 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:31:24.615  INFO 16531 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:31:24.616  INFO 16531 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:31:24.959  INFO 16531 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:31:25.106  INFO 16531 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:31:28.270  INFO 16531 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 11:31:28.272  INFO 16531 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 11:31:28.272  INFO 16531 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:31:28.275  INFO 16531 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:90}] to localhost:27017 because the pool has been closed.
+2019-05-14 11:32:51.522  INFO 16663 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 16663 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 11:32:51.524  INFO 16663 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 11:32:51.904  INFO 16663 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 11:32:51.953  INFO 16663 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46ms. Found 5 repository interfaces.
+2019-05-14 11:32:52.409  INFO 16663 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 11:32:52.428  INFO 16663 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 11:32:52.428  INFO 16663 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 11:32:52.433  INFO 16663 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 11:32:52.497  INFO 16663 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 11:32:52.497  INFO 16663 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 941 ms
+2019-05-14 11:32:52.744  INFO 16663 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 11:32:52.744  INFO 16663 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 11:32:52.779  INFO 16663 --- [cluster-ClusterId{value='5cda5a0cff122f4117dfce6c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:91}] to localhost:27017
+2019-05-14 11:32:52.781  INFO 16663 --- [cluster-ClusterId{value='5cda5a0cff122f4117dfce6c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=937241}
+2019-05-14 11:32:52.781  INFO 16663 --- [cluster-ClusterId{value='5cda5a0cff122f4117dfce6c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 11:32:53.244  INFO 16663 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:32:53.342  INFO 16663 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 11:32:53.394  INFO 16663 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 11:32:53.446  INFO 16663 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 11:32:53.448  INFO 16663 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 2.215 seconds (JVM running for 2.583)
+2019-05-14 11:32:53.473  INFO 16663 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:92}] to localhost:27017
+2019-05-14 11:32:53.508  INFO 16663 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:32:56.152  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:32:56.153  INFO 16663 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:32:56.542  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:32:56.676  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:33:37.639  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Size of Json Array Sent to Kapture 2
+2019-05-14 11:33:37.639  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Response Fetched From Kapture Server  {"status":"free","message":"Data Synced Successfully"}
+2019-05-14 11:33:37.922  INFO 16663 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:33:42.653  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:33:42.653  INFO 16663 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:33:42.895  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:33:42.901  INFO 16663 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:33:45.709  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:33:45.709  INFO 16663 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:33:45.924  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:33:45.929  INFO 16663 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:33:48.586  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:33:48.586  INFO 16663 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:33:48.809  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:33:48.816  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:33:48.828  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Size of Json Array Sent to Kapture 1
+2019-05-14 11:33:48.828  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Response Fetched From Kapture Server  {"status":"free","message":"Data Synced Successfully"}
+2019-05-14 11:33:48.833  INFO 16663 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:33:51.551  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:33:51.552  INFO 16663 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:33:51.767  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:33:51.769  INFO 16663 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:33:55.317  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:33:55.317  INFO 16663 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:33:55.653  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:33:55.656  INFO 16663 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 11:33:58.006  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 11:33:58.007  INFO 16663 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 11:33:58.215  INFO 16663 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 11:33:58.232  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 11:33:58.244  INFO 16663 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 11:34:00.696  INFO 16663 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 11:34:00.698  INFO 16663 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 11:34:00.699  INFO 16663 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 11:34:00.701  INFO 16663 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:92}] to localhost:27017 because the pool has been closed.
+2019-05-14 12:06:49.313  INFO 18671 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 18671 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 12:06:49.323  INFO 18671 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 12:06:49.798  INFO 18671 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 12:06:49.901  INFO 18671 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99ms. Found 5 repository interfaces.
+2019-05-14 12:09:16.067  INFO 19069 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 19069 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 12:09:16.069  INFO 19069 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 12:09:16.465  INFO 19069 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 12:09:16.526  INFO 19069 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56ms. Found 5 repository interfaces.
+2019-05-14 12:09:17.042  INFO 19069 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 12:09:17.060  INFO 19069 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 12:09:17.060  INFO 19069 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 12:09:17.065  INFO 19069 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 12:09:17.108  INFO 19069 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 12:09:17.108  INFO 19069 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1009 ms
+2019-05-14 12:09:17.360  INFO 19069 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 12:09:17.360  INFO 19069 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 12:09:17.393  INFO 19069 --- [cluster-ClusterId{value='5cda6295ff122f4a7da852ab', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:95}] to localhost:27017
+2019-05-14 12:09:17.395  INFO 19069 --- [cluster-ClusterId{value='5cda6295ff122f4a7da852ab', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=778999}
+2019-05-14 12:09:17.395  INFO 19069 --- [cluster-ClusterId{value='5cda6295ff122f4a7da852ab', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 12:09:17.837  INFO 19069 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 12:09:17.925  INFO 19069 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 12:09:17.973  INFO 19069 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 12:09:18.014  INFO 19069 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 12:09:18.016  INFO 19069 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 2.207 seconds (JVM running for 2.546)
+2019-05-14 12:09:18.057  INFO 19069 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:96}] to localhost:27017
+2019-05-14 12:09:18.083  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:09:38.041  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:09:38.041  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:09:41.526  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:09:42.503  INFO 19069 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 12:10:23.209  INFO 19069 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Size of Json Array Sent to Kapture 2
+2019-05-14 12:10:23.222  INFO 19069 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Response Fetched From Kapture Server  {"message":"Data Synced Successfully"}
+2019-05-14 12:10:23.501  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:26.918  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:10:26.918  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:10:29.452  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:10:29.457  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:31.999  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:10:32.000  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:10:34.777  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:10:34.781  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:37.338  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:10:37.339  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:10:39.495  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:10:39.501  INFO 19069 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 12:10:39.504  INFO 19069 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 12:10:39.507  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:41.929  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:10:41.929  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:10:42.971  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:10:42.973  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:45.633  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:10:45.634  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:10:46.149  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:10:46.154  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:48.602  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:10:48.602  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:10:50.431  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:10:50.445  INFO 19069 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 12:10:50.456  INFO 19069 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 12:10:50.467  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:52.801  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 12:10:52.802  INFO 19069 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 12:10:53.747  INFO 19069 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 12:10:53.751  INFO 19069 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 12:10:54.013  INFO 19069 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 12:10:54.017  INFO 19069 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 12:10:54.018  INFO 19069 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 12:10:54.046  INFO 19069 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:96}] to localhost:27017 because the pool has been closed.
+2019-05-14 12:10:54.306 ERROR 19069 --- [scheduling-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task.
+
+java.lang.IllegalStateException: state should be: open
+	at com.mongodb.assertions.Assertions.isTrue(Assertions.java:70) ~[mongodb-driver-core-3.8.2.jar:na]
+	at com.mongodb.internal.connection.BaseCluster.getDescription(BaseCluster.java:164) ~[mongodb-driver-core-3.8.2.jar:na]
+	at com.mongodb.internal.connection.MultiServerCluster.getDescription(MultiServerCluster.java:54) ~[mongodb-driver-core-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate.getConnectedClusterDescription(MongoClientDelegate.java:136) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate.createClientSession(MongoClientDelegate.java:94) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.getClientSession(MongoClientDelegate.java:249) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:172) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoIterableImpl.execute(MongoIterableImpl.java:132) ~[mongodb-driver-3.8.2.jar:na]
+	at com.mongodb.client.internal.MongoIterableImpl.iterator(MongoIterableImpl.java:86) ~[mongodb-driver-3.8.2.jar:na]
+	at org.springframework.data.mongodb.core.MongoTemplate.executeFindMultiInternal(MongoTemplate.java:2667) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.doFind(MongoTemplate.java:2427) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.core.ExecutableFindOperationSupport$ExecutableFindSupport.doFind(ExecutableFindOperationSupport.java:214) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.core.ExecutableFindOperationSupport$ExecutableFindSupport.oneValue(ExecutableFindOperationSupport.java:126) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.repository.query.AbstractMongoQuery.lambda$getExecution$4(AbstractMongoQuery.java:126) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.mongodb.repository.query.AbstractMongoQuery.execute(AbstractMongoQuery.java:99) ~[spring-data-mongodb-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:605) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$invoke$3(RepositoryFactorySupport.java:595) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:595) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:59) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:61) ~[spring-data-commons-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at com.sun.proxy.$Proxy69.findByApiname(Unknown Source) ~[na:na]
+	at sun.reflect.GeneratedMethodAccessor47.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_192]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139) ~[spring-tx-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at com.sun.proxy.$Proxy69.findByApiname(Unknown Source) ~[na:na]
+	at com.kapture.middleware.services.UserConfService.getUserConf(UserConfService.java:42) ~[classes/:na]
+	at com.kapture.middleware.services.RestConsumeService.Maker(RestConsumeService.java:61) ~[classes/:na]
+	at com.kapture.middleware.services.Processor.process(Processor.java:59) ~[classes/:na]
+	at com.kapture.middleware.Scheduler.PullScheduler.pullData(PullScheduler.java:45) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_192]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_192]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [na:1.8.0_192]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_192]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [na:1.8.0_192]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_192]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_192]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_192]
+
+2019-05-14 12:11:28.213  INFO 19212 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 19212 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 12:11:28.217  INFO 19212 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 12:11:30.616  INFO 19212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 12:11:30.814  INFO 19212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 189ms. Found 5 repository interfaces.
+2019-05-14 16:44:30.833  INFO 30668 --- [main] c.k.middleware.MiddleWareApplication     : Starting MiddleWareApplication on adjetter-debian with PID 30668 (/root/eclipse-workspace/MiddleWareServer/target/classes started by root in /root/eclipse-workspace/MiddleWareServer)
+2019-05-14 16:44:30.887  INFO 30668 --- [main] c.k.middleware.MiddleWareApplication     : No active profile set, falling back to default profiles: default
+2019-05-14 16:44:33.030  INFO 30668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 16:44:33.081  INFO 30668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47ms. Found 5 repository interfaces.
+2019-05-14 16:44:33.799  INFO 30668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 16:44:33.874  INFO 30668 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 16:44:33.875  INFO 30668 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-14 16:44:33.883  INFO 30668 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-05-14 16:44:33.953  INFO 30668 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-14 16:44:33.954  INFO 30668 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2714 ms
+2019-05-14 16:44:34.428  INFO 30668 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-05-14 16:44:34.428  INFO 30668 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2019-05-14 16:44:34.460  INFO 30668 --- [cluster-ClusterId{value='5cdaa31aff122f77ccb968f1', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:101}] to localhost:27017
+2019-05-14 16:44:34.462  INFO 30668 --- [cluster-ClusterId{value='5cdaa31aff122f77ccb968f1', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=797920}
+2019-05-14 16:44:34.463  INFO 30668 --- [cluster-ClusterId{value='5cdaa31aff122f77ccb968f1', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-05-14 16:44:35.102  INFO 30668 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 16:44:35.231  INFO 30668 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-05-14 16:44:35.406  INFO 30668 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-05-14 16:44:35.467  INFO 30668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-14 16:44:35.469  INFO 30668 --- [main] c.k.middleware.MiddleWareApplication     : Started MiddleWareApplication in 5.732 seconds (JVM running for 7.061)
+2019-05-14 16:44:35.512  INFO 30668 --- [scheduling-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:102}] to localhost:27017
+2019-05-14 16:44:35.618  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:00.478  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:00.479  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:02.998  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:03.946  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:45:04.573  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Size of Json Array Sent to Kapture 2
+2019-05-14 16:45:04.573  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Response Fetched From Kapture Server  {"message":"Data Synced Successfully"}
+2019-05-14 16:45:05.093  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:07.816  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:07.817  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:09.147  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:09.150  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:11.503  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:11.503  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:13.762  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:13.765  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:16.418  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:16.418  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:18.875  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:18.891  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:45:18.905  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:21.436  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:21.437  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:22.083  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:25.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:28.451  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:28.452  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:28.993  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:35.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:38.334  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:38.334  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:39.626  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:39.635  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:45:45.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:48.058  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:48.059  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:48.470  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:45:55.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:45:58.302  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:45:58.302  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:45:59.920  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:46:05.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:46:08.030  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:46:08.030  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:46:08.949  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:46:08.965  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:46:08.976  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 16:46:15.450  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:46:18.143  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:46:18.143  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:46:19.580  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:46:25.447  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:46:28.534  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:46:28.534  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:46:28.836  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:46:35.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:46:38.452  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:46:38.453  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:46:40.257  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:46:40.267  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:46:40.275  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 16:46:45.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:46:48.197  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:46:48.198  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:46:50.326  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:46:55.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:46:58.104  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:46:58.105  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:46:59.644  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:47:05.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:47:08.138  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:47:08.139  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:47:09.361  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:47:09.375  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:47:09.386  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 16:47:15.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:47:18.169  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:47:18.169  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:47:19.699  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:47:25.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:47:28.002  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:47:28.002  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:47:30.250  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:47:35.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:47:38.247  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:47:38.248  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:47:39.674  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:47:39.689  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:47:39.704  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 16:47:45.447  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:47:47.970  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:47:47.970  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:47:48.582  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:47:55.447  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:47:58.106  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:47:58.106  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:47:59.006  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:48:05.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:48:07.841  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:48:07.841  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:48:09.626  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:48:09.643  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:48:09.654  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 16:48:15.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:48:18.379  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:48:18.379  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:48:18.692  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:48:25.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:48:28.824  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:48:28.824  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:48:29.077  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:48:35.449  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:48:38.795  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:48:38.795  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:48:40.295  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:48:40.307  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Facebook
+2019-05-14 16:48:40.317  INFO 30668 --- [scheduling-1] c.k.middleware.Scheduler.PushScheduler   : Nothing is there for  Shopify
+2019-05-14 16:48:45.448  INFO 30668 --- [scheduling-1] c.k.middleware.AuthImpl.BasicAuthImpl    : Shopify
+2019-05-14 16:48:48.347  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity Shopify
+2019-05-14 16:48:48.347  INFO 30668 --- [scheduling-1] c.k.m.AuthImpl.ResponseBodyAuthImpl      : 99acres
+2019-05-14 16:48:49.611  INFO 30668 --- [scheduling-1] c.kapture.middleware.services.Processor  : Saved Entity 99acres
+2019-05-14 16:48:53.947  INFO 30668 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-14 16:48:53.953  INFO 30668 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-14 16:48:53.954  INFO 30668 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 16:48:53.980  INFO 30668 --- [RMI TCP Connection(2)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:102}] to localhost:27017 because the pool has been closed.

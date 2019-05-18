@@ -1,0 +1,185 @@
+package com.kapture.middleware.services;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.kapture.middleware.DTOModels.KeyValue;
+import com.kapture.middleware.DTOModels.RequestBuilderDTO;
+import com.kapture.middleware.DTOModels.ResponseBuilderDTO;
+import com.kapture.middleware.DataModel.ApiRequestModel;
+import com.kapture.middleware.DataModel.Credential;
+import com.kapture.middleware.DataModel.DataEndPoints;
+import com.kapture.middleware.DataModel.Model;
+import com.kapture.middleware.DataModel.RequestBuilderModel;
+import com.kapture.middleware.DataModel.SourceConf;
+import com.kapture.middleware.DataModel.UserConf;
+import com.kapture.middleware.Factory.BeanFactory;
+import com.kapture.middleware.utils.RequestBuilderUtils;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class RestConsumeService {
+
+	@Autowired
+	UserConfService ucs;
+
+	@Autowired
+	ResponseBuilderDTO resp;
+
+	@Autowired
+	RequestBuilderUtils util;
+
+	@Autowired
+	UserConf uc;
+
+	@Autowired
+	BeanFactory bean;
+
+	@Autowired
+	SourceConfService scs;
+
+	public ResponseBuilderDTO Maker(RequestBuilderDTO mod) {
+
+		SourceConf sourceConf = mod.getSource();
+		uc = ucs.getUserConf(sourceConf.getName());
+
+		List<DataEndPoints> ldep = sourceConf.getDataEndPoints();
+		LocalDateTime lastdatetime = null;
+		List<Model> modelList = new ArrayList<Model>();
+		for (DataEndPoints dep : ldep) {
+			int ind = dep.getIndex();
+
+			String url = sourceConf.getDomain() != null && sourceConf.getDomain().equalsIgnoreCase("yes")
+					? uc.getKeycreds().get(0).getDomain() + dep.getUrl()
+					: dep.getUrl();
+
+			RestTemplate restTemplate = new RestTemplate();
+			ResponseEntity<String> res = null;
+			UriComponentsBuilder builder;
+			String apikey = null;
+			for (Credential cred : mod.getCredential())
+				try {
+					apikey = cred.getApikey();
+					HttpHeaders headers = new HttpHeaders();
+					Model model = new Model();
+					MultiValueMap<String, String> tok = new LinkedMultiValueMap<String, String>();
+					HashMap<String, String> ar = new HashMap<String, String>();
+					for (KeyValue temp : cred.getCreds()) {
+						ar.put(temp.getKey(), temp.getValue());
+					}
+
+					// Adding Configs
+					RequestBuilderModel bmod = RequestBuilderModel.builder().credmap(ar).dataendpoints(dep)
+							.name(sourceConf.getName()).cred(cred).label(dep.getLabel()).type("Consume").build();
+					ApiRequestModel amod = util.builder(bmod);
+
+					if (amod.getParams() != null) {
+						tok = amod.getParams();
+						builder = UriComponentsBuilder.fromUriString(url).queryParams(tok);
+					} else {
+						builder = UriComponentsBuilder.fromUriString(url);
+					}
+
+					if (sourceConf.getAuthType().equalsIgnoreCase("BasicAuth")) {
+						String username = null;
+						String password = null;
+						for (KeyValue temp : cred.getCreds()) {
+							if (temp.getKey().equalsIgnoreCase("username")) {
+								username = temp.getValue();
+							}
+							if (temp.getKey().equalsIgnoreCase("password")) {
+								password = temp.getValue();
+							}
+						}
+						headers.setBasicAuth(username, password);
+					}
+
+					HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+
+					if (amod.getRequestentity() != null) {
+						if (dep.getMethod().equalsIgnoreCase("POST")) {
+							res = restTemplate.exchange(builder.toUriString(), HttpMethod.POST, amod.getRequestentity(),
+									String.class);
+							lastdatetime = LocalDateTime.now();
+						}
+						res = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, amod.getRequestentity(),
+								String.class);
+						lastdatetime = LocalDateTime.now();
+					} else {
+						res = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity, String.class);
+						lastdatetime = LocalDateTime.now();
+					}
+
+					JsonObject mo = new JsonObject();
+					JsonArray jar = new JsonArray();
+
+					// For Pagination
+					if (dep.getPagination() != null) {
+						String key = null;
+						int val = 0;
+						for (KeyValue temp : dep.getPagination()) {
+							if (temp.getType().equalsIgnoreCase("Increment")) {
+								key = temp.getKey();
+								val = Integer.parseInt(temp.getValue());
+								builder.queryParam(key, val);
+							}
+						}
+						
+						res = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity, String.class);
+						JsonObject modi = new Gson().fromJson(res.getBody(), JsonObject.class);
+						jar = modi.get(dep.getLabel()).getAsJsonArray();
+						while (res.getBody().length() > 50 & res.getStatusCodeValue() == 200) {
+							val = val + 1;
+							builder.replaceQueryParam(key, val);
+							res = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity, String.class);
+							JsonObject modif = new Gson().fromJson(res.getBody(), JsonObject.class);
+							JsonArray jary = modif.get(dep.getLabel()).getAsJsonArray();
+							jar.addAll(jary);
+						}
+						mo.add(dep.getLabel(), jar);
+					}
+
+					// Building Model
+					model.setApikey(cred.getApikey());
+					model.setLabel(dep.getLabel());
+					model.setType(sourceConf.getName());
+					model.setTime(lastdatetime);
+					if (dep.getPagination() == null) {
+						model.setData(bean.chooseFormatting(sourceConf.getFormatterType()).formatter(res.getBody(),
+								dep.getLabel(), sourceConf.getName()));
+					} else {
+						model.setData(bean.chooseFormatting(sourceConf.getFormatterType()).formatter(mo.toString(),
+								dep.getLabel(), sourceConf.getName()));
+					}
+					if (model.getData() != null)
+						modelList.add(model);
+					
+
+				} catch (Exception e) {
+					log.error("Rest Consume Service", e);
+				}
+			
+			resp.setModelList(modelList);
+			ucs.updatePullLastDateTime(ind,uc.getApiname(),apikey ,lastdatetime);
+		}
+		return resp;
+	}
+
+}

@@ -1,0 +1,311 @@
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring Boot Validation Login Form Example</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/home.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+<body>
+
+	<div class="form-login">
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+
+				<div class="form-row" id="addsource">
+				<form action="/View/AddNewSourceConfView">
+					<button type="submit">Add New SourceConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="source">
+				<form action="/View/EditSourceConfView">
+					<button type = "submit">Edit SourceConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/AddNewUserConfView">
+					<button type="submit">Add New UserConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/EditUserConfView">
+					<button type="submit">Edit UserConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="user">
+				<form action="/View/Logout">
+					<button type="submit">Logout</button>
+				</form>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+			
+
+	<div class="form-login" >
+
+
+		<div class="form-log-in-with-email">
+
+			
+			<div class="form-white-background">
+			
+			<p th:if="${#request.getAttribute('SourceConfExists')} != null"
+      th:text="${#request.getAttribute('SourceConfExists')}"></p>
+
+				<form action="#" th:action="@{/View/AddNewSourceConf}" th:object="${SourceConf}" method="post">
+					
+					            <h2 class="text-center">Add New SourceConf Details : </h2>
+					            
+					            <table>
+					            
+					            
+					            <tr>
+					            
+					            <td> <label>APIName : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{name}" required="required"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr>
+					            
+					            <td> <label>Type(Pull/Push) : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{type}" required="required"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr>
+					            
+					            <td> <label>Authentication Type : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authType}" required="required"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr>
+					            
+					            <td> <label>Formatter Type : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{formatterType}" required="required"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr ><td><b>DataEndPoints Details : </b></td><td></td></tr>
+					            
+					            <tr>
+					            
+					            <td> <label>Label : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{dataEndPoints.label}"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr>
+					            
+					            <td> <label>URL : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{dataEndPoints.url}"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr>
+					            
+					            <td> <label>Method : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{dataEndPoints.method}"/></td>
+					            
+					            
+					            </tr>
+					            <tr id="dataparam">
+					            
+					            <td > <label>Params for DataEndPoints : </label></td>
+					            
+					            </tr>
+					            
+					            <tr>
+					            <td><b>Authentication End Points Details</b></td><td></td>
+					            </tr>
+					            
+					            
+					            <tr>
+					            
+					            <td> <label>Label for AuthEndPoints : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authEndPoints.label}" id="alabel"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr>
+					            
+					            <td> <label>url for AuthEndPoints : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authEndPoints.url}" id="aurl"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr>
+					            
+					            <td> <label>Method for AuthEndPoints : </label></td>
+					            <td><input type="text" class="form-control" th:field="*{authEndPoints.method}" id="amethod"/></td>
+					            
+					            
+					            </tr>
+					            
+					            <tr id="authparams">
+					            
+					            <td> <label>Params for AuthEndPoints : </label></td>
+					            
+					            </tr>
+					            <tr>
+					            <td></td>
+								<td id="tdkey"></td>
+								<td id="tdvalue"></td>	
+								<td id="tdbutton"></td>
+					            
+					            </tr>
+					            
+					            </table>
+					            
+					            
+					            
+<!-- 					            <tr> <td><button type="submit" class="btn btn-primary login-btn btn-block">Submit</button></td></tr>
+ -->					            
+					            
+					           <div>
+					            <button type="button" class="btn btn-primary login-btn btn-block" id="addauth">Add Auth Param</button>
+					            <button type="button" class="btn btn-primary login-btn btn-block" id="adddata">Add Data Param</button>
+					            <button type="submit" class="btn btn-primary login-btn btn-block">Submit</button>
+					            </div>
+					            
+					            
+            
+					
+					
+				</form>
+				
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+<script th:inline="javascript">
+
+$(document).ready(function () {
+
+    //call function when page is loaded
+    
+    	//alert("Poonam");
+    	
+    	var cou = 0;
+    	var data = 0;
+
+    	$('.key').remove();
+    	$('.value').remove();
+    	$('.del').remove();
+    //set on change listener
+    $('#addauth').click(addAuth);
+    $('#adddata').click(addData);
+
+
+
+function addAuth(){
+	
+	
+	var adata="<tr><td><input type='text' class='key' id ='authEndPoints.params'" + cou + "'.key' name = 'authEndPoints.params[" + cou + "].key' placeholder = 'key'/></td>";
+       adata +="<td><input type='text' class='key' id='authEndPoints.params" + cou + ".value' name='authEndPoints.params[" + cou + "].value' placeholder = 'value' /></td> <td><input type='button' class='del' value = 'delete'/></td></tr>";
+       $('#authparams').after(adata);
+	
+	
+		/*var elek = $(document.createElement('input')).attr("type", "text").attr("class", "key").attr("id", "authEndPoints.params" + cou + ".key").attr("name", "authEndPoints.params[" + cou + "].key");
+		var elev = $(document.createElement('input')).attr("type", "text").attr("class", "value").attr("id", "authEndPoints.params" + cou + ".value").attr("name", "authEndPoints.params[" + cou + "].value");
+		var remove = $(document.createElement('button')).attr("type", "button").attr("text", "Delete").attr("class", "det");
+		
+		
+		
+		
+		$('#tdkey').append(elek).append('<br />');
+		$('#tdvalue').append(elev).append('<br />');
+		$('#tdbutton').append(remove).append('<br />');*/
+		/* $("button").css({"display": "block",
+		    "border-radius": "1px",
+		    "background-color":  "#6caee0",
+		    "color": "#ffffff",
+		    "font-weight": "bold",
+		    "box-shadow": "1px 2px 4px 0 rgba(0, 0, 0, 0.08)",
+		    "padding": "10px 15px",
+		    "border": "0",
+		    "margin": "0px auto 0",
+		    "cursor": "pointer"}); */
+		cou++;
+	
+}
+
+function addData(){
+	
+	
+	var ddata="<tr><td><input type='text' class='key' id ='dataEndPoints.params'" + data + "'.key' name = 'dataEndPoints.params[" + data + "].key' placeholder = 'key'/></td>";
+       ddata +="<td><input type='text' class='key' id='dataEndPoints.params" + data + ".value' name='dataEndPoints.params[" + data + "].value' placeholder = 'value' /></td> <td><input type='button' class='del' value = 'delete'/></td></tr>";
+       $('#dataparam').after(ddata);
+	
+	
+		/*var elek = $(document.createElement('input')).attr("type", "text").attr("class", "key").attr("id", "authEndPoints.params" + cou + ".key").attr("name", "authEndPoints.params[" + cou + "].key");
+		var elev = $(document.createElement('input')).attr("type", "text").attr("class", "value").attr("id", "authEndPoints.params" + cou + ".value").attr("name", "authEndPoints.params[" + cou + "].value");
+		var remove = $(document.createElement('button')).attr("type", "button").attr("text", "Delete").attr("class", "det");
+		
+		
+		
+		
+		$('#tdkey').append(elek).append('<br />');
+		$('#tdvalue').append(elev).append('<br />');
+		$('#tdbutton').append(remove).append('<br />');*/
+		/* $("button").css({"display": "block",
+		    "border-radius": "1px",
+		    "background-color":  "#6caee0",
+		    "color": "#ffffff",
+		    "font-weight": "bold",
+		    "box-shadow": "1px 2px 4px 0 rgba(0, 0, 0, 0.08)",
+		    "padding": "10px 15px",
+		    "border": "0",
+		    "margin": "0px auto 0",
+		    "cursor": "pointer"}); */
+		data++;
+	
+}
+
+
+ 	
+});
+
+$(document).on('click', '.del', function() {
+	//alert($(this).closest('tr').find('.key'));
+    $(this).closest('tr').remove();
+    
+});
+
+</script>
+
+
+</html>

@@ -1,0 +1,226 @@
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring Boot Validation Login Form Example</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/home.css" th:href="@{/css/home.css}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style type="text/css" th:inline="text">
+
+button {
+
+	display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 15px 35px;
+    border: 0;
+    cursor: pointer;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<body>
+
+	<div class="form-login">
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+
+				<div class="form-row" id="addsource">
+				<form action="/View/AddNewSourceConfView">
+					<button type="submit">Add New SourceConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="source">
+				<form action="/View/EditSourceConfView">
+					<button type = "submit">Edit SourceConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/AddNewUserConfView">
+					<button type="submit">Add New UserConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/EditUserConfView">
+					<button type="submit">Edit UserConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="user">
+				<form action="/View/Logout">
+					<button type="submit">Logout</button>
+				</form>
+				</div>
+				
+				
+			</div>
+
+		</div>
+	</div>
+	
+	<div class="form-login" >
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+			
+				<p th:if="${#request.getAttribute('UserConfExists')} != null" th:text="${#request.getAttribute('UserConfExists')}"></p>
+
+					<form action="#" th:action="@{/View/AddNewUserConf}" th:object="${UserConf}" method="post">
+					
+					   <h2 class="text-center">Add New UserConf Details : </h2>
+					            
+					   Select API Name
+					            <select id="selectapiname" th:field= "*{apiname}" >
+					            <option th:value="select" th:text="select"></option>
+											<option th:each="apiname : ${apinameslist}"
+                            						th:value="${apiname}"
+                            						th:text="${apiname}"></option>
+								</select>
+					   <br>
+					            
+					    
+					   <div id="buttons" >        
+					   <button type="button" class="btn btn-primary login-btn btn-block" id="addkeycred">Add Key Credentials</button>
+					   <br>
+					   <button type="submit" class="btn btn-primary login-btn btn-block" id="submit">Submit</button>
+					   </div>        
+					</form>
+			</div>
+		</div>
+	</div>
+	
+
+			
+
+</body>
+
+<script th:inline="javascript">
+
+var arr = [];
+var keycred = 0;
+$(document).ready(function () {
+
+    	//alert("Poonam");
+    	$('#buttons').hide();
+		$('.key').remove();
+    	$('.value').remove();
+    	$('.del').remove();
+    	$('.div').remove();
+    	$('.credd').remove();
+    	$('.keycreds').remove();
+    	//$('.keycreddelete').remove();
+    	//$('#addkeycred').remove();
+    	$('.deletekeycred').remove();
+    //set on change listener
+    $('#addkeycred').click(addKeyCred);
+    //$('.del').click(deleteRow);
+	//$('#creds').click(addCreds);
+	
+	$('#selectapiname').change(visi);
+
+	function visi(){
+		var e = document.getElementById("selectapiname");
+		var apiname = e.options[e.selectedIndex].value;
+		$.ajax({
+	        url: "/View/GetUserConf",
+	        type: 'GET',
+	        data: "apiname="+apiname,
+	        cache:false,
+	        success:function(response){
+	        	
+	        	if(response.apiname !== null)
+	    		{
+					
+					var s = "select"; 
+					if(apiname!=="select")
+						{
+							$('#buttons').show();
+							$('#submit').hide();
+						}
+					else
+					$('#buttons').hide();
+	    		}
+	        	else
+	        	{
+	        		$('#buttons').hide();
+	        		$('#selectapiname').attr("disabled", true); 
+	        	}
+	            	//alert(response.dataEndPoints.label)
+	            },
+	            error:function(jqXhr, textStatus, errorThrown){
+	                alert(jqXhr);
+	                alert(textStatus);
+	                alert(errorThrown);
+	            }
+	        });
+	}
+
+function addKeyCred(){
+	
+	//alert(arr.length);
+	//alert(keycred);
+	var data="<div class='keycreds' id='"+keycred+"' class = 'div'><lable>Key Credentials : </lable><br><label>API Key</label><input type = 'text' class='apikey' id ='keycreds'" + keycred + "'.apikey' name = 'keycreds[" + keycred + "].apikey' required='required'><input type = 'button' class = 'deletekeycred' value = 'Delete Key Cred'/><br/><input type='button' id='credd' value='Add keyValue'></div>";
+    $(data).insertBefore($('#buttons'));
+	
+       arr[keycred] = 0;
+       keycred++;
+       
+	
+}
+
+
+
+ 	
+});
+
+$(document).on('click', '#credd', function() {
+	//alert($(this).closest('tr').find('.key'));
+	//alert("Poonam");
+	var p = $(this).closest('div').attr('id');
+	//var j = arr[p];
+	//j++;
+	//alert(j);
+	var data="<div class='creds'><lable>Credentials : </lable><br><input type = 'text' class='key' id ='keycreds"+ p +".creds'" + arr[p] + "'.key' name = 'keycreds["+ p +"].creds[" + arr[p] + "].key' placeholder = 'key' required='required'><input type = 'text' class='value' id ='keycreds"+ p +".creds'" + arr[p] + "'.value' name = 'keycreds["+ p +"].creds[" + arr[p] + "].value' placeholder = 'value' required='required'><input type='button' class='del' value = 'deletekeyval'/></div>";
+   $(data).insertBefore($(this));
+    //$(this).closest('div').closest('button');
+    arr[p]++;
+    $('#submit').show();
+});
+
+
+
+$(document).on('click', '.deletekeycred', function() {
+	//alert($(this).closest('tr').find('.key'));
+    $(this).closest('div').remove();
+    
+});
+
+$(document).on('click', '.del', function() {
+	//alert($(this).closest('tr').find('.key'));
+    $(this).closest('div').remove();
+    
+});
+</script>
+
+</html>

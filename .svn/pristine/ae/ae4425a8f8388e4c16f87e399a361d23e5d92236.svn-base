@@ -1,0 +1,14 @@
+package com.kapture.middleware.DataInterfaces;
+
+import org.springframework.stereotype.Component;
+
+import com.kapture.middleware.DataModel.Model;
+
+@Component
+public interface Formatter {
+
+	String formatter(Model model);
+	//String pull(String data);
+	
+
+}

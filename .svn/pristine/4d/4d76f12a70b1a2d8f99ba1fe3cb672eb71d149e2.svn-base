@@ -1,0 +1,116 @@
+package com.kapture.middleware.Controller;
+
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.kapture.middleware.DataModel.Model;
+import com.kapture.middleware.DataModel.SourceConf;
+import com.kapture.middleware.Repositories.SourceConfRepository;
+import com.kapture.middleware.services.Processor;
+import com.kapture.middleware.services.SourceConfService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RestController
+public class MainController {
+
+	private static final String SUBSCRIBE = "subscribe";
+
+	@Autowired
+	private Processor processor;
+
+	@Autowired
+	SourceConfRepository sourceConfRepository;
+
+	@RequestMapping("/")
+	public String root() {
+		return "Oops! you landed at the Root page of Kapture Middleware :) #DevMode";
+	}
+
+	@RequestMapping(value = "/facebook", method = { RequestMethod.POST, RequestMethod.GET })
+	public ResponseEntity<String> getWebhook(
+			@RequestParam(value = "hub.verify_token", required = false) String verifyToken,
+			@RequestParam(value = "hub.mode", required = false) String mode,
+			@RequestParam(value = "hub.challenge", required = false) String challenge,
+			@RequestBody(required = false) String request) {
+		JsonArray datalist = new JsonArray();
+		try {
+			if (mode != null && verifyToken != null && challenge != null && !mode.isEmpty() && !verifyToken.isEmpty()
+					&& !challenge.isEmpty()) {
+				if (mode.equalsIgnoreCase(SUBSCRIBE) && !challenge.isEmpty()) {
+					return ResponseEntity.ok(challenge);
+				} else {
+					log.error("Verification Params not found for Facebook");
+					throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Verification Params not found");
+				}
+			} else if (request != null && !request.isEmpty()) {
+				JsonObject mod = new Gson().fromJson(request, JsonObject.class);
+				datalist.add(mod);
+				Model model = Model.builder().time(LocalDateTime.now()).type("Facebook").data(datalist.toString())
+						.build();
+
+				SourceConf sourceConf = sourceConfRepository.findByName("Facebook");
+
+				processor.process(model, sourceConf);
+				return ResponseEntity.status(HttpStatus.OK).build();
+			} else {
+				log.error("Request Body Empty for Facebook");
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Request Body Empty");
+			}
+
+		} catch (Exception e) {
+			log.error("Facebook Getting Blank Hit");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Request Not Found");
+
+		}
+	}
+
+	@GetMapping("/ozonetel")
+	ResponseEntity<String> ozonetel(@RequestParam String data) {
+		try {
+			if (!data.isEmpty()) {
+				JsonArray datalist = new JsonArray();
+				JsonObject mod = new Gson().fromJson(data, JsonObject.class);
+				datalist.add(mod);
+				Model model = Model.builder().time(LocalDateTime.now()).type("Ozonetel").data(datalist.toString())
+						.build();
+
+				SourceConf sourceConf = sourceConfRepository.findByName("Ozonetel");
+
+				processor.process(model, sourceConf);
+				return ResponseEntity.ok().body(data);
+			} else {
+				log.error("Ozonetel Data field is empty");
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND, "data Field is Empty");
+			}
+
+		} catch (Exception e) {
+			log.error("Ozonetel is getting blank hits");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Request Not Found");
+		}
+
+	}
+
+}

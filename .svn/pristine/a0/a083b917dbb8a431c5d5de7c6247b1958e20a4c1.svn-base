@@ -1,0 +1,121 @@
+package com.kapture.middleware.services;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.kapture.middleware.DTOModels.KeyValue;
+import com.kapture.middleware.DTOModels.RequestBuilderDTO;
+import com.kapture.middleware.DTOModels.ResponseBuilderDTO;
+import com.kapture.middleware.DataModel.DataEndPoints;
+import com.kapture.middleware.DataModel.Model;
+import com.kapture.middleware.DataModel.SourceConf;
+import com.kapture.middleware.DataModel.UserConf;
+import com.kapture.middleware.Factory.BeanFactory;
+import com.kapture.middleware.utils.RequestBuilderUtils;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class RestConsumeService {
+	
+	@Autowired
+	UserConfService ucs;
+
+	@Autowired
+	ResponseBuilderDTO resp;
+
+	@Autowired
+	RequestBuilderUtils util;
+	
+	@Autowired
+	UserConf uc;
+	
+	@Autowired
+	BeanFactory bean;
+
+	public ResponseBuilderDTO Maker(RequestBuilderDTO mod) {
+
+		SourceConf sourceConf = mod.getSource();
+		uc = ucs.getUserConf(sourceConf.getName());
+		
+		List<DataEndPoints> ldep = sourceConf.getDataEndPoints();
+
+		for (DataEndPoints dep : ldep) {
+			
+			String url = null;
+			if (sourceConf.getDomain().equalsIgnoreCase("yes")){
+				url = uc.getKeycreds().get(0).getDomain()+dep.getUrl();
+				
+			}
+			
+			RestTemplate restTemplate = new RestTemplate();
+			
+			List<Model> modelList = new ArrayList<Model>();
+
+			ResponseEntity<String> res = null;
+			LocalDateTime timestamp = LocalDateTime.now();
+			for (Entry<String, List<KeyValue>> entry : mod.getPassmap().entrySet())
+				try {
+					HttpHeaders headers = new HttpHeaders();
+					Model model = new Model();
+					MultiValueMap<String, String> tok = new LinkedMultiValueMap<String, String>();
+					HashMap<String, String> ar = new HashMap<String, String>();
+					for (KeyValue temp : entry.getValue()) {
+						ar.put(temp.getKey(), temp.getValue());
+					}
+					tok = util.builder(null, dep, ar, "Consume").getParams();
+					UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url).queryParams(tok);
+					if (sourceConf.getAuthType().equalsIgnoreCase("BasicAuth")) {
+						String username = null;
+						String password = null;
+						for (KeyValue temp : entry.getValue()) {
+							if (temp.getKey().equalsIgnoreCase("username")) {
+								username = temp.getValue();
+							}
+							if (temp.getKey().equalsIgnoreCase("password")) {
+								password = temp.getValue();
+							}
+						}
+						headers.setBasicAuth(username, password);
+					}
+
+					HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+					res = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity, String.class);
+					//JsonObject modi = new Gson().fromJson(res.getBody(), JsonObject.class);
+
+					
+					
+					model.setData(res.getBody());
+					model.setApikey(entry.getKey());
+					model.setLabel(dep.getLabel());
+					System.out.println("xbashxgajhxgaj"+dep.getLabel());
+					model.setType(sourceConf.getName());
+					model.setTime(timestamp);
+					model.setData(bean.chooseFormatting(sourceConf.getFormatterType()).formatter(model));
+					modelList.add(model);
+
+				} catch (Exception e) {
+					log.error("Rest Consume Service", e);
+				}
+			resp.setModelList(modelList);
+		}
+		
+		return resp;
+
+	}
+
+	}

@@ -1,0 +1,333 @@
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring Boot Validation Login Form Example</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/home.css" th:href="@{/css/home.css}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style type="text/css" th:inline="text">
+
+button {
+
+	display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 15px 35px;
+    border: 0;
+    cursor: pointer;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<body>
+
+	<div class="form-login">
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+
+				<div class="form-row" id="addsource">
+				<form action="/View/AddNewSourceConfView">
+					<button type="submit">Add New SourceConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="source">
+				<form action="/View/EditSourceConfView">
+					<button type = "submit">Edit SourceConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/AddNewUserConfView">
+					<button type="submit">Add New UserConf</button>
+				</form>
+				</div>
+
+				<div class="form-row" id="user">
+				<form action="/View/EditUserConfView">
+					<button type="submit">Edit UserConf</button>
+				</form>
+				</div>
+				
+				<div class="form-row" id="user">
+				<form action="/View/Logout">
+					<button type="submit" id="logout">Logout</button>
+				</form>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+			
+
+	<div class="form-login" >
+
+
+		<div class="form-log-in-with-email">
+
+			
+			<div class="form-white-background">
+			
+			<!-- <p th:if="${#request.getAttribute('SourceConfExists')} != null"
+      th:text="${#request.getAttribute('SourceConfExists')}"></p> -->
+				
+				<form action="/View/EditUserConf" th:action="@{/View/EditUserConf}" th:object="${UserConf}" method="post">
+					
+					            <h2 class="text-center">Edit UserConf Details : </h2>
+					            Select API Name
+					            <select id="selectapiname" th:field= "*{apiname}" >
+					            <option th:value="select" th:text="select"></option>
+											<option th:each="apiname : ${apinameslist}"
+                            						th:value="${apiname}"
+                            						th:text="${apiname}"></option>
+								</select>
+								<br>
+								
+								<div id="buttons" class="visibility">        
+					   			<button type="button" class="btn btn-primary login-btn btn-block" id="addkeycred">Add Key Credentials</button>
+					   			<br>
+					   			<button type="submit" name = "action" value="save" class="btn btn-primary login-btn btn-block" >Save Document</button><button type="submit" id="delconf" name = "action" value="delete" class="btn btn-primary login-btn btn-block" >Delete Document</button>
+					   			</div>
+					   			
+					   			
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+<script th:inline="javascript">
+
+
+
+
+
+var arr = [];
+var keycredd = 0;
+
+$(document).ready(function () {
+
+    //call function when page is loaded
+    $('.visibility').hide();
+    	//alert("Poonam");
+    	$('.key').remove();
+    	$('.value').remove();
+    	$('.del').remove();
+    	
+    //set on change listener
+    $('#selectapiname').change(getSelectedValue);
+    $('#addkeycred').click(addKeyCred);
+    //$('.del').click(deleteRow);
+    //$('#logout').click(preventBack)
+    
+    $('#delconf').click(function() {
+        return confirm('Are You Sure want to delete ?')
+      });
+
+function getSelectedValue(){
+    	
+	var e = document.getElementById("selectapiname");
+	var apiname = e.options[e.selectedIndex].value;
+	
+	$('.key').remove();
+	$('.value').remove();
+	$('.del').remove();
+	$('.keycreds').remove();
+	$('.credd').remove();
+	$('.keycreddelete').remove();
+	//$('.apikey').remove();
+	
+	var s = "select";
+		if(apiname!=="select")
+		$('.visibility').show();
+		else
+		$('.visibility').hide();
+	$.ajax({
+        url: "/View/GetUserConf",
+        type: 'GET',
+        data: "apiname="+apiname,
+        cache:false,
+        success:function(response){
+        	
+        	if(response.apiname !== null)
+    		{
+        	$.each(response.keycreds, function(){
+       			
+        		//alert(keycredd);
+       			var apikeydata = "<div class='keycreds' id = 'out"+keycredd+"'><lable>Key Credentials : </lable><br><label>API Key</label><input type = 'text' class='apikey' id ='keycreds'" + keycredd + "'.apikey' name = 'keycreds[" + keycredd + "].apikey' value = '"+ this.apikey +"'><input type = 'button' class = 'keycreddelete' value = 'Delete KeyCred'/></div>"
+       			
+       			//var data="<tr><td><input type='text' class='key' id ='authEndPoints.params'" + cou + "'.key' name = 'authEndPoints.params[" + cou + "].key' value = '"+key+"'/></td>";
+       	       // data +="<td><input type='text' class='key' id='authEndPoints.params" + cou + ".value' name='authEndPoints.params[" + cou + "].value' value = '"+value+"'/></td> <td><input type='button' class='del' value = 'delete'/></td></tr>";
+       	     	$(apikeydata).insertBefore($('#buttons'));
+       			
+       	     arr[keycredd] = 0;
+       	  //alert(keycredd);
+             
+             //alert("Poonam");
+       			$.each(this.creds, function(k,v){
+       				//alert(keycredd);
+       				var data="<div class='creds' id = 'in"+keycredd+"'><lable>Credentials : </lable><br><input type = 'text' class='key' id ='keycreds"+ keycredd +".creds'" + arr[keycredd] + "'.key' name = 'keycreds["+ keycredd +"].creds[" + arr[keycredd] + "].key' value = '"+ this.key +"'><input type = 'text' class='value' id ='keycreds"+ keycredd +".creds'" + arr[keycredd] + "'.value' name = 'keycreds["+ keycredd +"].creds[" + arr[keycredd] + "].value' value = '"+ this.value +"'><input type = 'button' class = 'del' value = 'Delete'/></div>";
+       			  $('#out'+keycredd).append($(data));
+       				//$(data).insertBefore($('#buttons'));
+       			    //$(this).closest('div').closest('button');
+       			    arr[keycredd]++;
+       			 //alert(keycredd);
+       			    
+       			})
+       			//alert("seeee,..e.e.e");
+       			//alert(keycredd);
+       			var bu = "<br/><input type='button' class = 'credd'  id = '"+keycredd+"' value='Add keyValue'/><br>";
+       			//var f = $("#hid"+keycredd);
+       			$('#out'+keycredd).append($(bu));
+       			//$(bu).insertBefore($('#buttons'));
+       			//alert(keycredd);
+       		 keycredd++;
+       			/*var elek = $(document.createElement('input')).attr("type", "text").attr("class", "key").attr("id", "authEndPoints.params" + cou + ".key").attr("name", "authEndPoints.params[" + cou + "].key").val(key);
+       			var elev = $(document.createElement('input')).attr("type", "text").attr("class", "value").attr("id", "authEndPoints.params" + cou + ".value").attr("name", "authEndPoints.params[" + cou + "].value").val(value);
+       			var remove = $(document.createElement('button')).attr("type", "button").attr("value", "Delete").attr("class", "del");
+       			
+       			
+       			$('#tdkey').append(elek).append('<br />');
+       			$('#tdvalue').append(elev).append('<br />');
+       			$('#tdbutton').append(remove).append('<br />');*/
+       			$("button").css({"display": "block",
+    			    "border-radius": "1px",
+    			    "background-color":  "#6caee0",
+    			    "color": "#ffffff",
+    			    "font-weight": "bold",
+    			    "box-shadow": "1px 2px 4px 0 rgba(0, 0, 0, 0.08)",
+    			    "padding": "10px 15px",
+    			    "border": "0",
+    			    "margin": "0px auto 0",
+    			    "cursor": "pointer"});
+       			//cou++;
+        		
+  			});
+        	//$('.del').text("Delete");
+    		}
+        	else
+        		{
+        		$('.visibility').hide();
+        		$('#selectapiname').attr("disabled", true); 
+        		}
+        	//alert(response.dataEndPoints.label)
+        },
+        error:function(jqXhr, textStatus, errorThrown){
+            alert(jqXhr);
+            alert(textStatus);
+            alert(errorThrown);
+        }
+    });
+}
+
+function addKeyCred(){
+	
+	//alert(arr.length);
+	//alert(keycredd);
+	var data="<div class='keycreds' id='"+keycredd+"'><lable>Key Credentials : </lable><br><label>API Key</label><input type = 'text' class='apikey' id ='keycreds'" + keycredd + "'.apikey' name = 'keycreds[" + keycredd + "].apikey'><input type = 'button' class = 'keycreddelete' value = 'Delete KeyCred'/><br/><input type='button' class='credd' value='Add keyValue' id = '"+keycredd+"'></div>";
+    $(data).insertBefore($('#buttons'));
+	
+       arr[keycredd] = 0;
+       keycredd++;
+       
+	
+}
+
+/* $('.credd').click(addKeyVal);
+
+function addKeyVal(){
+	alert(keycredd);
+	var p = $(this).attr('id');
+	//var j = arr[p];
+	//j++;
+	alert("now seee");
+	alert(p);
+	var data="<div class='creds'><lable>Credentials : </lable><br><input type = 'text' class='key' id ='keycreds"+ p +".creds'" + arr[p] + "'.key' name = 'keycreds["+ p +"].creds[" + arr[p] + "].key' placeholder = 'key'><input type = 'text' class='value' id ='keycreds"+ p +".creds'" + arr[p] + "'.value' name = 'keycreds["+ p +"].creds[" + arr[p] + "].value' placeholder = 'value'><input type='button' class='del' value = 'delete'/></div>";
+   var t = $(this).closest('div');
+	$(data).insertBefore($(this));
+    //$(this).closest('div').closest('button');
+    arr[p]++;
+    alert(keycredd);
+    
+ }*/
+
+});
+
+ $(document).on('click', '.credd', function() {
+	//alert($(this).closest('tr').find('.key'));
+	//alert("Poonam");
+	//alert(keycredd);
+	var p = $(this).attr('id');
+	//var j = arr[p];
+	//j++;
+	//alert("now seee");
+	//alert(this.tagName);
+	//alert("alsooo");
+	//alert(this.id);
+	//alert(p);
+	var data="<div class='creds'><lable>Credentials : </lable><br><input type = 'text' class='key' id ='keycreds"+ p +".creds'" + arr[p] + "'.key' name = 'keycreds["+ p +"].creds[" + arr[p] + "].key' placeholder = 'key'><input type = 'text' class='value' id ='keycreds"+ p +".creds'" + arr[p] + "'.value' name = 'keycreds["+ p +"].creds[" + arr[p] + "].value' placeholder = 'value'><input type='button' class='del' value = 'delete'/></div>";
+   var t = $(this).closest('div');
+	$(data).insertBefore($(this));
+    //$(this).closest('div').closest('button');
+    arr[p]++;
+    //alert(keycredd);
+    
+}); 
+$(document).on('click', '.del', function() {
+	//alert($(this).closest('tr').find('.key'));
+    $(this).closest('div').remove();
+    
+});
+
+
+$(document).on('click', '.keycreddelete', function() {
+	//alert($(this).closest('tr').find('.key'));
+    $(this).closest('div').remove();
+    
+});
+
+/* window.onload = function () {
+    if (typeof history.pushState === "function") {
+        history.pushState("jibberish", null, null);
+        window.onpopstate = function () {
+            history.pushState('newjibberish', null, null);           
+        };
+    }
+    else {
+        var ignoreHashChange = true;
+        window.onhashchange = function () {
+            if (!ignoreHashChange) {
+                ignoreHashChange = true;
+                window.location.hash = Math.random();                
+            }
+            else {
+                ignoreHashChange = false;   
+            }
+        };
+    }
+}; */
+
+</script>
+
+</html>

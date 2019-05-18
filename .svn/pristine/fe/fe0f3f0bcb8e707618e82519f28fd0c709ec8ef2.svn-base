@@ -1,0 +1,130 @@
+package com.kapture.middleware.Scheduler;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.kapture.middleware.DataModel.Model;
+import com.kapture.middleware.DataModel.ProcessedModel;
+import com.kapture.middleware.DataModel.SourceConf;
+import com.kapture.middleware.Repositories.ModelRepository;
+import com.kapture.middleware.Repositories.ProcessedModelRepository;
+import com.kapture.middleware.Repositories.SourceConfRepository;
+import com.kapture.middleware.services.SourceConfService;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component
+public class PushScheduler {
+
+	@Autowired
+	MongoTemplate mongoTemplate;
+
+	@Autowired
+	SourceConfRepository sourceConfRepository;
+
+	@Autowired
+	ModelRepository modelRepository;
+
+	@Autowired
+	ProcessedModelRepository processedModelRepository;
+
+	@Autowired
+	SourceConfService sourceConfService;
+
+	//@Value("${listener.url}")
+	//public String url;
+
+	@Scheduled(fixedRate = 10000)
+	public void scheduler() {
+
+		LocalDateTime timeStamp = LocalDateTime.now();
+		List<SourceConf> sourceConfList = sourceConfRepository.findAll();
+
+		for (int i = 0; i < sourceConfList.size(); i++) {
+			String url = sourceConfList.get(i).getKapoint();
+
+			//if (sourceConfList.get(i).getName().equalsIgnoreCase("Facebook")) {
+				List<Model> modelList = modelRepository.deleteByTypeAndTimeLessThan(sourceConfList.get(i).getName(),
+						timeStamp);
+				JsonArray app = new JsonArray();
+
+				
+				if (modelList.size() > 0) {
+					Gson gson = new Gson();
+					
+
+					for(int k = 0; k < modelList.size(); k ++)
+					{
+						try {
+							JsonParser parser = new JsonParser();
+							//log.info("Data In Each Iteration"+modelList.get(k).getData());
+							JsonElement ele = parser.parse(modelList.get(k).getData());
+							JsonArray ar = ele.getAsJsonArray();
+							
+							app.addAll(ar);						
+							
+						} catch (Exception e) {
+							log.error("Error in Making Json Array",e);
+						}
+
+					}
+					
+					HttpResponse<String> rs = null;
+					try {
+						rs = Unirest.post(url)
+								  .header("Authorization", "Basic YWRqZXR0ZXI6ZmFjZWJvb2s=")
+								  .header("Content-Type", "application/json")								  
+								  .body(gson.toJson(app).toString())
+								  .asString();
+					} catch (UnirestException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					log.info("Size of Json Array Sent to Kapture "+app.size());				
+					
+					log.info("Response Fetched From Kapture Server  "+rs.getBody());
+
+					if (rs.getStatus() == 200) {
+
+						for (int j = 0; j < modelList.size(); j++) {
+
+							//log.info("Running for " + modelList.get(j).getType());
+							
+							//System.out.println(modelList.get(j).getType() + "   " + modelList.get(j).getData());
+							ProcessedModel processedModel = ProcessedModel.builder().type(modelList.get(j).getType())
+									.data(modelList.get(j).getData()).time(modelList.get(j).getTime()).apikey(modelList.get(j).getApikey()).label(modelList.get(j).getLabel()).build();
+							processedModelRepository.save(processedModel);
+						}
+						sourceConfService.updateLastDateTime(sourceConfList.get(i).getName(), timeStamp);
+						// SourceConf sourceConf = sourceConfList.get(i);
+						// sourceConf.setLastdatetime(LocalDateTime.now());
+						// sourceConfRepository.deleteByName(sourceConfList.get(i).getName());
+						// sourceConfRepository.save(sourceConf);
+					}
+					else
+					{
+						for (int k = 0; k < modelList.size(); k++) {
+							modelRepository.save(modelList.get(k));
+						}
+					}
+
+				} else {
+					log.info("Nothing is there for  " + sourceConfList.get(i).getName());
+				}
+
+			//}
+		}
+	}
+}
